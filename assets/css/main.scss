@@ -1,0 +1,1880 @@
+@import "sass/variables", "sass/mixins", "sass/global", "sass/components",
+"sass/navbar", "sass/footer";
+
+/********************* Start Slider section *********************/
+
+.home-sec {
+  position: relative;
+  // transform: translateY(-67px);
+  top: 44px;
+  // z-index: -1;
+
+  .home-item {
+    position: relative;
+    height: calc(100vh - 44px);
+    display: flex;
+    align-items: center;
+    min-height: 600px;
+    z-index: 2;
+
+    @media screen and (max-width: $screen-lg) {
+      height: 500px;
+      min-height: fit-content;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: #0a1128, $alpha: 0.7);
+      z-index: -1;
+    }
+
+    .home-img {
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    .content {
+      width: 500px;
+      padding: 80px 0;
+      display: flex;
+      flex-direction: column;
+      // align-items: center;
+      // margin-inline: auto;
+      gap: 25px;
+      position: relative;
+
+      // .item-img {
+      //   object-fit: cover;
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   width: 100%;
+      //   height: 100%;
+      //   z-index: -1;
+      // }
+
+      @media screen and (max-width: $screen-sm) {
+        width: 100%;
+      }
+
+      .title {
+        font-size: 22px;
+        color: $white;
+
+        @media screen and (max-width: $screen-sm) {
+          font-size: 20px;
+        }
+
+        @media screen and (max-width: $screen-xs) {
+          font-size: 16px;
+        }
+      }
+
+      .desc {
+        font-size: 15px;
+        color: $white;
+        // text-align: center;
+
+        @media screen and (max-width: $screen-xs) {
+          font-size: 13px;
+        }
+      }
+
+      .main-btn {
+        width: fit-content;
+      }
+    }
+
+    .content_con {
+      @include between;
+      gap: 40px;
+
+      .hero-img {
+        @include shape(350px, 0);
+        object-fit: cover;
+      }
+    }
+  }
+
+  .owl-dots {
+    position: absolute;
+    top: 50%;
+    @include dir-right(69px);
+    transform: translateY(-50%);
+    @include center;
+    gap: 7px;
+    // margin-top: 25px;
+    flex-direction: column;
+
+    .owl-dot {
+      @include shape(20px, 0);
+      border-radius: 0;
+      // border-start-end-radius: 3px !important;
+      // border-end-start-radius: 3px !important;
+      position: relative;
+      transition: $main-transition;
+      background-color: rgba($color: #000000, $alpha: 0.3);
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include circle(5px);
+        background-color: $white;
+      }
+
+      &.active {
+        background-color: rgba($color: $sec, $alpha: 0.6);
+      }
+    }
+  }
+
+  .owl-nav {
+    position: absolute;
+    top: calc(50% + 15px);
+    @include dir-right(60px);
+    transform: translateY(-50%);
+    flex-direction: column;
+    justify-content: space-between;
+
+    .owl-prev,
+    .owl-next {
+      background-color: rgba($color: #000000, $alpha: 0.3) !important;
+      color: $white !important;
+    }
+  }
+
+  .hea {
+    position: absolute;
+    bottom: -10px;
+    // transform: translateY(-50%);
+    left: 0;
+    max-width: 140px;
+    opacity: 0.3;
+    z-index: 3;
+    animation: bounceIn 2.5s infinite linear alternate;
+  }
+}
+
+// bounceIn
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/********************* End Slider section *********************/
+
+/********************* Start About section *********************/
+
+.about-content {
+  display: flex;
+  // align-items: center;
+  gap: 50px 65px;
+
+  @media screen and (max-width: $screen-lg) {
+    flex-direction: column;
+  }
+
+  .about-img {
+    width: 380px;
+    height: 650px;
+    position: relative;
+    flex-shrink: 0;
+
+    @media screen and (max-width: $screen-xs) {
+      width: 325px;
+      height: 380px;
+    }
+
+    @media screen and (max-width: $screen-xxs) {
+      width: 290px;
+      height: 290px;
+    }
+
+    &::before {
+      // content: "";
+      position: absolute;
+      @include dir-left(26px);
+      top: -13px;
+      width: 96.5%;
+      height: 94%;
+      background-color: rgba(200, 159, 107, 0.3);
+      z-index: -1;
+      border-start-start-radius: 10px;
+      border-start-end-radius: 40px;
+
+      @media screen and (max-width: $screen-xs) {
+        border-start-end-radius: 10px;
+      }
+    }
+
+    &::after {
+      // content: "";
+      @include dir-left(-15px);
+      position: absolute;
+      bottom: -15px;
+      @include shape(80px);
+      background-color: rgba(17, 22, 63, 0.3);
+      z-index: -1;
+      border-end-start-radius: 10px;
+
+      @media screen and (max-width: $screen-xs) {
+        // border-start-end-radius: 10px;
+        @include shape(60px);
+        bottom: -10px;
+        @include dir-left(-10px);
+      }
+    }
+
+    .img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-start-start-radius: 10px;
+      // border-start-end-radius: 40px;
+      border: 1px solid $sec;
+
+      @media screen and (max-width: $screen-xs) {
+        border-start-end-radius: 10px;
+      }
+    }
+
+    .logo{
+      position: absolute;
+      background-color: $white;
+      @include shape(140px);
+      top: 0;
+      @include dir-right(0);
+      @include center;
+      // color: $white;
+      // font-size: 20px;
+
+      img{
+        max-width: 100px;
+      }
+    }
+  }
+
+  .content {
+    .main-title {
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      .icon {
+        @include shape(34px, 0);
+        @extend .border_r1;
+        background-color: $main;
+        @include center;
+        font-size: 13px;
+        color: $white;
+      }
+    }
+
+    .text {
+      // color: rgb(0 55 49 / 60%);
+      font-size: 14px;
+      line-height: 2;
+      margin-bottom: 18px;
+      text-align: justify;
+
+      @include devices(xs) {
+        font-size: 13px;
+      }
+    }
+
+    .main-btn {
+      max-width: fit-content;
+    }
+  }
+}
+
+.our_card{
+  display: flex;
+  align-items: center;
+  padding: 25px 0;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  margin-bottom: 20px;
+  background-color: $white;
+  gap: 25px;
+  padding-inline-end: 25px;
+  
+  .number{
+    // font-size: 40px;
+    background-color: $main;
+    color: $white;
+    font-size: 25px;
+    padding-block: 20px;
+    padding-inline-end: 20px;
+    padding-inline-start: 45px;
+    border-start-end-radius: 40px;
+    border-end-end-radius: 40px;
+    position: relative;
+    transition: $main-transition;
+
+    .img{
+      max-width: 35px;
+      transform: scaleX(-1);
+      // filter: invert(1);
+    }
+    
+    &::before{
+      content: "";
+      position: absolute;
+      width: 4px;
+      height: calc(100% );
+      @include dir-left(0);
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: $sec;
+      z-index: 2;
+      transition: $main-transition;
+    }
+  }
+
+  .name{
+    color: $dark;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .text{
+    color: $dark;
+    font-size: 15px;
+    margin-bottom: 0 !important;
+  }
+}
+
+/********************* End About section *********************/
+
+/********************* Start services-card section *********************/
+
+.services_sec {
+  // padding: 50px 0;
+  background-color: #f9f9f9;
+  position: relative;
+  z-index: 3;
+
+  .owl-stage-outer {
+    padding: 20px 0;
+  }
+}
+
+
+.services-card {
+  position: relative;
+  z-index: 5;
+  height: 440px;
+  counter-increment: post-counter;
+
+  .image {
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+
+    .service-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 400ms linear;
+    }
+  }
+
+  .small_icon {
+    border-start-start-radius: 10px;
+    border-end-end-radius: 10px;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1.2px;
+    -webkit-text-stroke-color: $main;
+    position: absolute;
+    top: -15px;
+    @include dir-left(0);
+    z-index: 2;
+    background-color: $main;
+    transition: $main-transition;
+
+    &::before {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 34px;
+      content: "0" counter(post-counter);
+      line-height: 1;
+      position: absolute;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke-width: .9px;
+      -webkit-text-stroke-color: $white;
+      transition: all 0.31s ease-in-out;
+    }
+
+    &::after {
+      content: "";
+      @include dir-right(-15px);
+      @include shape(15px);
+      position: absolute;
+      top: 0px;
+      background-color: $main;
+      transition: all 0.31s ease-in-out;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+    z-index: 1;
+  }
+
+  .service-content {
+    transition: all 0.4s ease-in-out;
+    padding: 30px 20px 50px;
+    position: absolute;
+    bottom: 0;
+    @include dir-right(0);
+    z-index: 2;
+    width: 100%;
+
+    .service-name {
+      color: $white;
+      font-size: 16px;
+      margin-bottom: 15px;
+      line-height: 1.4;
+      font-weight: 600;
+    }
+
+    .desc {
+      font-size: 14px;
+      color: $white;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .price {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 12px;
+      color: $main;
+      text-decoration: underline;
+      // text-align: end;
+    }
+
+    svg {
+      position: absolute;
+      width: 137px;
+      top: -70px;
+      @include dir-right(35px);
+      color: #e7e7e7;
+      transition: all 0.31s ease-in-out;
+    }
+  }
+
+  .main-btn {
+    position: absolute;
+    bottom: 0;
+    @include dir-right(0);
+    z-index: 5;
+    min-width: 50px;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: .8px;
+    -webkit-text-stroke-color: $white;
+    border-start-start-radius: 10px;
+    font-size: 18px;
+    padding-inline: 30px;
+
+    &:hover {
+      -webkit-text-stroke-color: $main;
+    }
+  }
+
+  &:hover {
+    .service-img {
+      transform: scale(1.1);
+    }
+
+    .small_icon {
+      background-color: $main;
+
+      &::before {
+        -webkit-text-stroke-color: $white;
+      }
+    }
+  }
+
+  @media screen and (max-width: $screen-xs) {
+    .image {
+      height: 200px;
+    }
+
+    .service-content {
+      .service-name {
+        font-size: 14px;
+      }
+
+      .desc {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+.services-slider,
+.team-slider {
+  .owl-item {
+    .services-card {
+      .small_icon {
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .owl-nav {
+    position: absolute;
+    @include dir-right(0);
+    top: -70px;
+
+    @include devices(xs) {
+      display: none;
+    }
+  }
+}
+
+/********************* End services-card section *********************/
+
+/********************* Strat owl Carousel *********************/
+
+.owl-nav {
+  display: flex;
+  gap: 7px;
+  width: fit-content;
+
+  .owl-next,
+  .owl-prev {
+    @include shape(40px);
+    @include center;
+    // @extend .border_r1;
+    border: 1px solid $main !important;
+    background-color: $white !important;
+    color: $main !important;
+    font-size: 12px !important;
+    transition: $main-transition;
+
+    &:hover {
+      background-color: $main !important;
+      color: $white !important;
+    }
+  }
+}
+
+.owl-dots {
+  @include center;
+  gap: 7px;
+  margin-top: 15px;
+
+  .owl-dot {
+    @include shape(20px, 0);
+    border-radius: 0;
+    position: relative;
+    transition: $main-transition;
+    background-color: rgba($color: #000000, $alpha: 0.3) !important;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @include circle(5px);
+      background-color: $white;
+    }
+
+    &.active {
+      background-color: $main !important;
+    }
+  }
+}
+
+/********************* End owl Carousel *********************/
+
+
+/********************* Start client-item section *********************/
+
+.client-item {
+  border-radius: 8px;
+  border-start-start-radius: 0;
+  background-color: $white;
+  @include center;
+  box-shadow: $main-shadow;
+  height: 120px;
+
+  @media screen and (max-width: $screen-xs) {
+    height: 105px;
+  }
+
+  .brand-img {
+    max-width: 100px;
+    transition: all ease 0.31s;
+    opacity: 0.8;
+
+    @media screen and (max-width: $screen-xs) {
+      max-width: 85px;
+    }
+  }
+
+  &.two {
+    position: relative;
+    overflow: hidden;
+
+    .brand-img {
+      max-width: 120px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: rgba($color: $main, $alpha: .5);
+      width: 100%;
+      height: 3px;
+    }
+  }
+
+  &:hover {
+    .brand-img {
+      filter: grayscale(100%);
+      opacity: 1;
+    }
+  }
+}
+
+/********************* End client-item section *********************/
+
+
+/********************* Start team-card section *********************/
+
+.team_sec {
+  position: relative;
+  z-index: 3;
+  // background-color: rgba($color: $main, $alpha: .04);
+
+  .owl-dots {
+    margin-top: 30px;
+  }
+}
+
+.team-card {
+  position: relative;
+  // height: 320px;
+  background-color: $white;
+  padding: 30px;
+  // gap: 15px;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  overflow: hidden;
+  border: 2px dashed #ebf1f5;
+  
+
+  &::before, &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 250px;
+    height: 250px;
+    clip-path: polygon(30% 0%, 100% 100%, 100% 0);
+    transition: $main-transition;
+  }
+  
+  &::after {
+    z-index: -2;
+    background-color: $main;
+  }
+  
+  &::before {
+    z-index: -1;
+    background-color: #ebf1f5;
+    width: 0;
+  }
+
+  .team-img {
+    @include shape(120px !important, 50%);
+    transition: all 600ms linear;
+    outline: 2px dashed $white;
+    outline-offset: 5px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    
+    .img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    .fancybox-img{
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      background-color: rgba($color: #000000, $alpha: .5);
+      color: $white;
+      @include center;
+      font-size: 18px;
+      transition: $main-transition;
+      opacity: 0;
+    }
+  }
+
+  .icon{
+    @include center;
+    @include shape(30px);
+    background-color: $main;
+    color: $white;
+    font-size: 15px;
+    position: absolute;
+    bottom: 0px;
+    @include dir-right(0);
+    z-index: 3;
+    display: none;
+  }
+
+  .team-content {
+    flex-shrink: 0;
+    background-color: #ebf1f5;
+    padding: 20px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+    padding-inline-start: 70px;
+    width: calc(100% - 70px);
+    transition: $main-transition;
+
+    #{$ltr} & {
+      transform: translateX(-50px);
+    }
+
+    #{$rtl} & {
+      transform: translateX(50px);
+    }
+
+    .name {
+      font-size: 16px;
+      line-height: 1.2;
+      transition: $main-transition;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .jop {
+      color: $dark;
+      font-size: 14px;
+      letter-spacing: 0.2px;
+      line-height: 1;
+      transition: $main-transition;
+    }
+  }
+
+  &:hover {
+    .team-img {
+      .fancybox-img{
+        opacity: 1;
+      }
+    }
+
+
+    &::before  {
+      width: 252px;
+    }
+
+    .team-content {
+      background-color: $main;
+
+      .name,
+      .jop {
+        color: $white;
+      }
+    }
+
+    &::before {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  @media screen and (max-width: $screen-sm) {
+    height: 260px;
+
+    .team-content {
+      .name {
+        font-size: 14px;
+      }
+
+      .jop {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+/********************* End team-card section *********************/
+
+
+/********************* Start legal_con section *********************/
+
+.legal_sec {
+  margin-bottom: -100px;
+  position: relative;
+  z-index: 9;
+}
+
+.legal_con {
+  position: relative;
+  padding: 40px;
+  border-start-end-radius: 15px;
+  border-end-start-radius: 15px;
+  background-color: $white;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+  @include between;
+  gap: 40px;
+
+  @media screen and (max-width: $screen-md) {
+    padding: 30px 20px;
+  }
+
+  @media screen and (max-width: $screen-xs) {
+    padding: 30px 15px;
+  }
+
+  @media screen and (max-width: $screen-lg) {
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: -14px;
+    left: -14px;
+    width: 100px;
+    height: 100px;
+    border: 2px solid rgba($color: $main, $alpha: .2);
+    border-start-end-radius: 15px;
+    border-end-start-radius: 15px;
+    z-index: -1;
+
+    @media screen and (max-width: $screen-sm) {
+      display: none;
+    }
+  }
+
+  .content {
+    width: 640px;
+
+    @media screen and (max-width: $screen-lg) {
+      width: 100%;
+    }
+
+    .title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      @media screen and (max-width: $screen-lg) {
+        font-size: 15px;
+      }
+
+      .sm-img {
+        max-width: 20px;
+        opacity: .5;
+      }
+    }
+
+    .text {
+      line-height: 1.9;
+
+      @media screen and (max-width: $screen-lg) {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+/********************* End legal_con section *********************/
+
+
+/********************* Start gallary section *********************/
+
+.gallary {
+  gap: 30px;
+
+  @media screen and (max-width: $screen-xs) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 15px;
+  }
+
+  .gallary-item {
+    height: 220px;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    margin-bottom: 15px;
+
+    @media screen and (max-width: $screen-xs) {
+      height: 195px;
+    }
+
+    .fancybox-img {
+      position: absolute;
+      bottom: -20px;
+      @include dir-right(20px);
+      background: $main !important;
+      z-index: 3;
+      overflow: hidden;
+      border: 1px solid $main;
+    }
+
+    .gallary-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.4s ease-in-out;
+      border-start-end-radius: 14px;
+      border-end-start-radius: 14px;
+    }
+
+    &:hover {
+      transform: translateY(-7px);
+    }
+  }
+}
+
+/********************* End gallary section *********************/
+
+
+/********************* Start Video section *********************/
+
+.video-card {
+  background-color: $white;
+  border-start-end-radius: 14px;
+  border-end-start-radius: 14px;
+  overflow: hidden;
+  box-shadow: $main-shadow;
+
+  .video-container {
+    width: 100%;
+    height: 220px;
+    position: relative;
+
+    .player-con {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgb(0 0 0 / 50%);
+      z-index: 1;
+      @include center;
+      /* cursor: pointer; */
+
+      &:hover {
+        .play-v {
+          @include shape(45px);
+          background-color: $main;
+          outline-color: #f6731191;
+        }
+      }
+    }
+
+    .play-v {
+      background-color: rgba($color: $main, $alpha: 0.8);
+      font-size: 15px;
+      @include shape(40px);
+      color: #fff;
+      cursor: pointer;
+      @include center;
+      outline: 5px solid transparent;
+      transition: $main-transition;
+      @extend .border_r1;
+    }
+  }
+
+  .video {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/********************* End video section *********************/
+
+
+/********************* start Contact section *********************/
+
+.contact-sec {
+  margin-top: -200px;
+  position: relative;
+  z-index: 5;
+
+  @media screen and (max-width: $screen-lg) {
+    margin-top: 0;
+  }
+}
+
+.map {
+  width: 100%;
+  height: 432px;
+  border-radius: 15px;
+
+  &.sm {
+    height: 330px;
+  }
+
+  @media screen and (max-width: $screen-lg) {
+    height: 300px !important;
+  }
+}
+
+.contact-style {
+  height: 100%;
+  background-color: $white;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  padding: 70px 50px;
+  border-start-end-radius: 50px;
+  border-end-start-radius: 50px;
+
+  @media screen and (max-width: $screen-lg) {
+    padding: 30px 20px;
+    border-radius: 0;
+  }
+}
+
+.contact-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: $black;
+  margin-bottom: 10px;
+
+  @media screen and (max-width: $screen-xs) {
+    font-size: 15px;
+  }
+}
+
+.contact-info {
+  font-size: 14px;
+  color: $black;
+  margin-bottom: 35px;
+  line-height: 1.7;
+
+  @media screen and (max-width: $screen-xs) {
+    font-size: 13px;
+  }
+}
+
+.contact_box {
+  @include between;
+  gap: 20px;
+  // margin-bottom: 25px;
+  // border: 1px solid #e7e7e7;
+  flex-direction: column;
+  background-color: $main;
+  @extend .border_r2;
+  padding: 15px;
+  color: $white;
+  flex-wrap: wrap;
+
+  .name {
+    @include center;
+    gap: 7px;
+
+    i {
+      margin-top: 3px;
+    }
+  }
+}
+
+/********************* End Contact section *********************/
+
+/********************* Start page-header section *********************/
+
+.page-top {
+  position: relative;
+  z-index: 2;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #0a1128, $alpha: 0.7);
+    z-index: -1;
+  }
+
+  .section-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    object-fit: cover;
+  }
+
+  .page-info {
+    padding: 180px 0 50px;
+    @include between;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    @media screen and (max-width: $screen-lg) {
+      padding: 50px 0;
+    }
+
+    @media screen and (max-width: $screen-xs) {
+      padding: 40px 0;
+      flex-direction: column;
+    }
+
+    .page-head {
+      font-size: 20px;
+      color: $white;
+
+      @media screen and (max-width: $screen-xs) {
+        font-size: 16px;
+      }
+    }
+
+    &.lg {
+      padding: 180px 0 190px;
+
+      @media screen and (max-width: $screen-lg) {
+        padding: 50px 0;
+      }
+    }
+  }
+}
+
+/********************* End page-header section *********************/
+
+
+/********************* Start numbers section *********************/
+
+.our-numbers {
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 2;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #0a1128, $alpha: 0.7);
+    z-index: -1;
+  }
+
+  .number-items {
+    @include center;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    @media screen and (max-width: $screen-sm) {
+      gap: 20px;
+    }
+
+    .number-item {
+      text-align: center;
+      color: $black;
+      background-color: $white;
+      padding: 20px 25px;
+      position: relative;
+      z-index: 2;
+      @extend .border_r2;
+
+      @media screen and (max-width: $screen-xs) {
+        padding: 20px 15px;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        @include dir-left(0);
+        width: 14px;
+        height: 14px;
+        background-color: $main;
+        z-index: -1;
+        border-start-end-radius: 5px;
+      }
+
+      .img {
+        position: absolute;
+        top: 3px;
+        @include dir-right(3px);
+        max-width: 30px;
+        z-index: -1;
+        object-fit: cover;
+        filter: invert(1);
+        opacity: .1;
+      }
+
+      .num {
+        font-size: 22px;
+        margin-bottom: 10px;
+
+        @media screen and (max-width: $screen-sm) {
+          font-size: 18px;
+        }
+      }
+
+      .text {
+        font-size: 15px;
+
+        @media screen and (max-width: $screen-sm) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+/********************* End numbers section *********************/
+
+
+/********************* Start blog_con section *********************/
+
+.blog_con {
+  display: flex;
+  align-items: start;
+  gap: 50px;
+
+  @media screen and (max-width: $screen-lg) {
+    flex-direction: column-reverse;
+  }
+
+  .blog_sidebar {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid $border-input;
+    @extend .border_r2;
+    position: sticky;
+    top: 100px;
+    flex-shrink: 0;
+    @include dir-left(0);
+    height: fit-content;
+
+    @media screen and (max-width: $screen-lg) {
+      width: 100%;
+    }
+
+    .title {
+      font-size: 15px;
+      color: $black;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .blog_items {
+      .blog_item {
+        display: block;
+        padding: 14px;
+        font-size: 13px;
+        color: $black;
+        background-color: #f5f5f5;
+        width: 100%;
+        margin-bottom: 10px;
+        @extend .border_r2;
+        transition: $main-transition;
+        text-align: start;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        &:hover {
+          background-color: $main;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+.blog_card {
+  position: relative;
+  height: fit-content;
+  z-index: 5;
+  background-color: $white;
+  padding: 7px;
+  border-start-end-radius: 20px;
+  border-end-start-radius: 20px;
+  box-shadow: $main-shadow;
+
+  .image {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    border-start-end-radius: 20px;
+    border-end-start-radius: 20px;
+
+    @media screen and (max-width: $screen-xs) {
+      height: 200px;
+    }
+
+    .blog-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 600ms linear;
+    }
+  }
+
+
+  .blog-content {
+    transition: all 0.4s ease-in-out;
+    padding: 20px 10px 10px;
+    position: relative;
+
+    .blog-name {
+      color: $dark;
+      font-size: 15px;
+      margin-bottom: 15px;
+      line-height: 1.4;
+      font-weight: 600;
+
+      @media screen and (max-width: $screen-xs) {
+        font-size: 14px;
+      }
+    }
+
+    .desc {
+      font-size: 13px;
+      color: $text-color;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+
+    .main-btn {
+      transition: all 0.4s ease-in-out;
+
+      &:hover {
+        background-color: $white;
+        color: $main;
+      }
+    }
+  }
+
+  &:hover {
+    .blog-img {
+      filter: grayscale(1) !important;
+      transform: scale(1.2) rotate(3deg);
+    }
+  }
+}
+
+.blog_date {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  top: 20px;
+  @include dir-left(17px);
+  background-color: $main;
+  padding: 7px 15px;
+  border-radius: 50px;
+  color: $white;
+  font-size: 12px;
+  z-index: 8;
+
+  &.price {
+    font-size: 13px;
+    border-radius: 0;
+    @extend .border_r2;
+  }
+
+  &.user {
+    @include dir-left(unset);
+    @include dir-right(17px);
+  }
+}
+
+/********************* End blog_con section *********************/
+
+
+/********************* Start FAQ section *********************/
+
+.faq-collapse {
+  margin-bottom: 15px;
+
+  .faq-open {
+    @include between;
+    padding: 15px 20px;
+    background-color: #f9f9f9;
+    color: $black;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: $main-transition;
+    border-start-end-radius: 12px;
+    border-end-start-radius: 12px;
+
+    @media screen and (max-width: $screen-xs) {
+      font-size: 13px;
+    }
+
+    i {
+      transition: $main-transition;
+      font-size: 13px;
+    }
+  }
+
+  .faq-content {
+    padding: 15px 25px;
+    background-color: #FAFAFA;
+    color: $black;
+    font-size: 14px;
+    line-height: 1.9;
+    display: none;
+
+  }
+
+  &.active {
+
+    .faq-open {
+      background-color: $main;
+      color: #fff;
+
+      i {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+}
+
+@media screen and (max-width:600px) {
+
+  .faq-collapse {
+    .faq-open {
+      padding: 15px;
+    }
+
+    .faq-content {
+      padding: 15px;
+      font-size: 13px !important;
+    }
+  }
+}
+
+.faq-item {
+  background-color: #f9f9f9;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+}
+
+/********************* End FAQ section *********************/
+
+/********************* Start services-details section *********************/
+
+.services-details {
+  display: flex;
+  gap: 50px;
+
+  @media screen and (max-width: $screen-lg) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .services_det_img {
+    width: 380px;
+    height: 400px;
+    position: relative;
+    flex-shrink: 0;
+    z-index: 2;
+
+    @media screen and (max-width: $screen-xs) {
+      width: 325px;
+      height: 380px;
+    }
+
+    @media screen and (max-width: $screen-xxs) {
+      width: 290px;
+      height: 290px;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      z-index: -1;
+      transition: $main-transition;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: $main, $alpha: .3);
+      pointer-events: none;
+      @extend .border_r2;
+    }
+
+    &::before {
+      top: 15px;
+      @include dir-right(15px);
+    }
+
+    &::after {
+      top: -15px;
+      @include dir-left(15px);
+    }
+
+    .img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @extend .border_r2;
+
+    }
+  }
+
+  .text {
+    line-height: 1.9;
+    font-size: 14px;
+
+    @media screen and (max-width: $screen-xs) {
+      font-size: 13px;
+    }
+  }
+}
+
+/********************* End services-details section *********************/
+
+/********************* Start blog details section *********************/
+
+.blog_det_con {
+  background-color: $main;
+  color: $white;
+  padding: 12px 20px;
+  display: flex;
+  gap: 15px 30px;
+  align-items: center;
+  // justify-content: center;
+  font-size: 14px;
+  @extend .border_r2;
+  flex-wrap: wrap;
+
+  .blog_date_det {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    i {
+      font-size: 12px;
+    }
+  }
+}
+
+.blog-img_d {
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+  @extend .border_r2;
+
+  @media screen and (max-width: $screen-xs) {
+    height: 280px;
+  }
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+
+  .user_img {
+    @include circle(60px);
+    flex-shrink: 0;
+  }
+
+  .name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .text {
+    line-height: 1.8;
+    font-size: 13px;
+  }
+
+  @media screen and (max-width: $screen-xs) {
+    align-items: start;
+
+    .user_img {
+      @include circle(50px);
+    }
+
+    .name {
+      font-size: 13px;
+    }
+  }
+}
+
+/********************* End blog details section *********************/
+
+/********************* Start certificate_card section *********************/
+
+.certificate_card {
+  background-color: $white;
+  box-shadow: $main-shadow;
+  border-start-end-radius: 14px;
+  border-end-start-radius: 14px;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 70px;
+    height: 70px;
+    border: 2px solid rgba($color: $main, $alpha: .2);
+    @include dir-right(-12px);
+    top: -12px;
+    z-index: -1;
+    border-start-end-radius: 14px;
+    border-end-start-radius: 14px;
+  }
+
+  .image {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    @include center;
+    border-bottom: 1px solid $light;
+
+    img {
+      max-width: 170px;
+      max-height: 65px;
+    }
+  }
+
+  .content {
+    padding: 15px;
+
+    .title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      transition: $main-transition;
+
+      &.link_l {
+        display: block;
+        text-align: center;
+        font-size: 13px;
+
+        &:hover {
+          color: $main;
+        }
+      }
+    }
+
+    .text {
+      line-height: 1.8;
+      font-size: 13px;
+    }
+  }
+}
+
+/********************* End certificate_card section *********************/
+
+/********************* Start Book section *********************/
+.ipgs-flipbook {
+  direction: ltr;
+  height: 500px !important;
+  width: 680px !important;
+  margin: auto !important;
+
+  @media screen and (max-width: $screen-lg) {
+    width: 100% !important;
+  }
+}
+
+.main-input.search {
+  .input-me {
+    // border-color: $main;
+    background-color: #f8f8f8;
+
+    @media screen and (max-width: $screen-xs) {
+      min-height: 48px !important;
+    }
+  }
+
+  .main-icon {
+    pointer-events: auto;
+    background-color: $main;
+    color: $white;
+    @include dir-right(0);
+    height: 100%;
+
+    @media screen and (max-width: $screen-xs) {
+      min-width: 100px;
+    }
+  }
+}
+
+/********************* End Book section *********************/
+
+/***************** Start package_card *********************/
+
+.package_card {
+  display: block;
+  background-color: $white;
+  // @include border-radius(15px);
+  @extend .border_r2;
+  padding: 20px 20px 30px;
+  box-shadow: 0 0 30px rgba($color: #000000, $alpha: 3%);
+  height: 100%;
+  color: $black !important;
+  border: 1px solid rgba($color: $main, $alpha: .5);
+  transition: $main-transition;
+
+  .head {
+    padding: 24px 15px;
+    @extend .border_r2;
+    background-color: rgba($color: $main, $alpha: .1);
+  }
+
+  .price {
+    color: #106390;
+  }
+
+  .text,
+  i {
+    color: $dark;
+  }
+
+  .main-btn {
+    @include border-radius(5px);
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: rgba($color: $main, $alpha: .5);
+  }
+}
+
+/***************** End package_card *********************/
+
+/***************** Start  *********************/
+.invoices {
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    // background-color: $blue2;
+  }
+}
+
+.invoices-table {
+  width: 100%;
+  white-space: nowrap;
+
+  thead {
+    // border-bottom: 1px solid $border-color;
+
+    th {
+      padding: 15px 10px;
+      text-align: center;
+      font-size: 16px;
+      color: $dark;
+      font-weight: 600;
+      background-color: rgba($color: $main, $alpha: .1);
+
+      @media screen and (max-width: $screen-xs) {
+        font-size: 14px;
+        padding: 15px 12px;
+      }
+    }
+  }
+
+  tbody {
+
+    tr {
+      td {
+        font-size: 15px;
+        color: $dark;
+        padding: 20px 10px;
+        text-align: center;
+        vertical-align: middle;
+
+        @media screen and (max-width: $screen-xs) {
+          font-size: 13px;
+          padding: 15px 12px;
+        }
+      }
+
+      &:nth-child(even) {
+        background-color: rgba($color: #f3f3f3, $alpha: .3);
+      }
+    }
+  }
+}
+
+/***************** End  *********************/
