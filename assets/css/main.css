@@ -648,6 +648,42 @@ html[lang=ar] .ml-25 {
      object-fit: cover;
 }
 
+.bg_left {
+  position: absolute;
+  top: 0;
+  opacity: 0.6;
+  z-index: -1;
+}
+html[lang=en] .bg_left {
+  left: 0;
+}
+html[lang=ar] .bg_left {
+  right: 0;
+}
+
+.center_bg {
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+  max-width: 120px;
+  opacity: 0.2;
+  animation: bounceFade 2s infinite ease-in-out alternate;
+}
+html[lang=en] .center_bg {
+  left: -10px;
+}
+html[lang=ar] .center_bg {
+  right: -10px;
+}
+
+@keyframes bounceFade {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
 .circle_left {
   position: absolute;
   top: -80px;
@@ -1061,11 +1097,13 @@ html[lang=ar] .iti--separate-dial-code .iti__flag-container {
 
 .main-title {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   width: -moz-fit-content;
   width: fit-content;
   color: #eb0c2a;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
   margin-bottom: 7px;
   letter-spacing: 0.6px;
@@ -1096,6 +1134,9 @@ html[lang=ar] .iti--separate-dial-code .iti__flag-container {
 }
 .main-title.white .line {
   background: #eb0c2a;
+}
+.main-title .title_icon {
+  max-width: 18px;
 }
 
 .big-title {
@@ -2600,8 +2641,6 @@ html[lang=ar] .remove-append {
   border: 1px solid #f0f0f0;
   background-color: #fff;
   font-weight: 500;
-  border-start-end-radius: 8px;
-  border-end-start-radius: 8px;
 }
 .main-input .input-me.photo-input {
   display: flex;
@@ -4098,8 +4137,12 @@ html[lang=ar] .footer .footer-links .dropdown-link .dropdown-menu.show {
   height: 100%;
   padding: 10px 0;
   opacity: 0.3;
+  z-index: -2;
 }
 
+.footer-right-img {
+  width: 100%;
+}
 html[lang=en] .footer-right-img {
   left: 0;
 }
@@ -4343,6 +4386,12 @@ html[lang=ar] .home-sec .owl-nav {
 }
 /********************* End Slider section *********************/
 /********************* Start About section *********************/
+.about-sec {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(238, 238, 238, 0.2039215686);
+}
+
 .about-content {
   display: flex;
   gap: 50px 65px;
@@ -4425,7 +4474,6 @@ html[lang=ar] .about-content .about-img::after {
   -o-object-fit: cover;
      object-fit: cover;
   border-start-start-radius: 10px;
-  border: 1px solid #f96b73;
 }
 @media screen and (max-width: 425px) {
   .about-content .about-img .img {
@@ -4435,18 +4483,21 @@ html[lang=ar] .about-content .about-img::after {
 .about-content .about-img .logo {
   position: absolute;
   background-color: #fff;
-  width: 140px;
-  height: 140px;
+  writing-mode: vertical-rl;
+  padding: 20px;
   top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  outline: 2px dashed #fff;
+  outline-offset: 5px;
+  color: #eb0c2a;
 }
 html[lang=en] .about-content .about-img .logo {
-  right: 0;
+  left: 20px;
 }
 html[lang=ar] .about-content .about-img .logo {
-  left: 0;
+  right: 20px;
 }
 .about-content .about-img .logo img {
   max-width: 100px;
@@ -4487,8 +4538,9 @@ html[lang=ar] .about-content .about-img .logo {
   display: flex;
   align-items: center;
   padding: 25px 0;
-  border-radius: 7px;
+  border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
   margin-bottom: 20px;
   background-color: #fff;
   gap: 25px;
@@ -4499,12 +4551,14 @@ html[lang=ar] .about-content .about-img .logo {
   color: #fff;
   font-size: 25px;
   padding-block: 20px;
-  padding-inline-end: 20px;
+  padding-inline-end: 40px;
   padding-inline-start: 45px;
   border-start-end-radius: 40px;
   border-end-end-radius: 40px;
   position: relative;
   transition: all 0.3s ease;
+  z-index: 2;
+  overflow: hidden;
 }
 .our_card .number .img {
   max-width: 35px;
@@ -4518,7 +4572,7 @@ html[lang=ar] .about-content .about-img .logo {
   top: 50%;
   transform: translateY(-50%);
   background-color: #f96b73;
-  z-index: 2;
+  z-index: -1;
   transition: all 0.3s ease;
 }
 html[lang=en] .our_card .number::before {
@@ -4529,19 +4583,80 @@ html[lang=ar] .our_card .number::before {
 }
 .our_card .name {
   color: #272727;
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 10px;
 }
 .our_card .text {
   color: #272727;
-  font-size: 15px;
   margin-bottom: 0 !important;
+}
+.our_card:hover .number::before {
+  width: 100%;
+}
+
+.Our_values_sec {
+  position: relative;
+  z-index: 2;
+}
+
+.our_values {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 36px 30px;
+}
+
+.our_value {
+  padding: 30px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+.our_value::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.89);
+  z-index: -1;
+}
+.our_value .our_value_img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.3s ease;
+}
+.our_value .icon {
+  max-width: 65px;
+  max-height: 45px;
+}
+.our_value .name {
+  color: #062b15;
+  font-size: 17px;
+}
+.our_value .text {
+  text-align: center;
+  font-size: 13px;
+  color: #000;
+}
+.our_value:hover .our_value_img {
+  transform: scale(1.1);
 }
 
 /********************* End About section *********************/
 /********************* Start services-card section *********************/
 .services_sec {
-  background-color: #f9f9f9;
+  background-color: rgba(238, 238, 238, 0.2039215686);
   position: relative;
   z-index: 3;
 }
@@ -5000,94 +5115,6 @@ html[lang=ar] .team-card .team-content {
 }
 
 /********************* End team-card section *********************/
-/********************* Start legal_con section *********************/
-.legal_sec {
-  margin-bottom: -100px;
-  position: relative;
-  z-index: 9;
-}
-
-.legal_con {
-  position: relative;
-  padding: 40px;
-  border-start-end-radius: 15px;
-  border-end-start-radius: 15px;
-  background-color: #fff;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-}
-@media screen and (max-width: 768px) {
-  .legal_con {
-    padding: 30px 20px;
-  }
-}
-@media screen and (max-width: 425px) {
-  .legal_con {
-    padding: 30px 15px;
-  }
-}
-@media screen and (max-width: 992px) {
-  .legal_con {
-    flex-direction: column;
-    align-items: start;
-    gap: 15px;
-  }
-}
-.legal_con::after {
-  content: "";
-  position: absolute;
-  top: -14px;
-  left: -14px;
-  width: 100px;
-  height: 100px;
-  border: 2px solid rgba(235, 12, 42, 0.2);
-  border-start-end-radius: 15px;
-  border-end-start-radius: 15px;
-  z-index: -1;
-}
-@media screen and (max-width: 576px) {
-  .legal_con::after {
-    display: none;
-  }
-}
-.legal_con .content {
-  width: 640px;
-}
-@media screen and (max-width: 992px) {
-  .legal_con .content {
-    width: 100%;
-  }
-}
-.legal_con .content .title {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 18px;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-@media screen and (max-width: 992px) {
-  .legal_con .content .title {
-    font-size: 15px;
-  }
-}
-.legal_con .content .title .sm-img {
-  max-width: 20px;
-  opacity: 0.5;
-}
-.legal_con .content .text {
-  line-height: 1.9;
-}
-@media screen and (max-width: 992px) {
-  .legal_con .content .text {
-    font-size: 13px;
-  }
-}
-
-/********************* End legal_con section *********************/
 /********************* Start gallary section *********************/
 .gallary {
   gap: 30px;
@@ -5190,13 +5217,13 @@ html[lang=ar] .gallary .gallary-item .fancybox-img {
 
 /********************* End video section *********************/
 /********************* start Contact section *********************/
-.contact-sec {
-  margin-top: -200px;
+.contact_sec {
+  background-color: rgba(238, 238, 238, 0.2039215686);
   position: relative;
   z-index: 5;
 }
 @media screen and (max-width: 992px) {
-  .contact-sec {
+  .contact_sec {
     margin-top: 0;
   }
 }
@@ -5204,10 +5231,9 @@ html[lang=ar] .gallary .gallary-item .fancybox-img {
 .map {
   width: 100%;
   height: 432px;
-  border-radius: 15px;
 }
-.map.sm {
-  height: 330px;
+.map.home {
+  height: 100% !important;
 }
 @media screen and (max-width: 992px) {
   .map {
@@ -5274,6 +5300,16 @@ html[lang=ar] .gallary .gallary-item .fancybox-img {
 }
 .contact_box .name i {
   margin-top: 3px;
+}
+
+.contact-form {
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  position: relative;
+  z-index: 2;
+  border: 1px dashed #e7e7e7;
+  background-color: #fff;
 }
 
 /********************* End Contact section *********************/

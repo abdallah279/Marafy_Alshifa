@@ -369,10 +369,12 @@
   height: 100%;
   padding: 10px 0;
   opacity: .3;
+  z-index: -2;
 }
 
 .footer-right-img {
   @include dir-left(0);
+  width: 100%
 }
 
 .footer-left-img {

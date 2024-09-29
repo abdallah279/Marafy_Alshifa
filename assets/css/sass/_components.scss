@@ -376,6 +376,41 @@
   // max-width: 300px;
 }
 
+.bg_left {
+  position: absolute;
+  top: 0;
+  @include dir-left(0);
+  opacity: .6;
+  // max-width: 200px;
+  z-index: -1;
+}
+
+.center_bg{
+  position: absolute;
+  top: 0px;
+  // transform: translateY(-50%);
+  @include dir-left(-10px);
+  z-index: -1;
+  max-width: 120px;
+  opacity: .2;
+  animation: bounceFade 2s infinite ease-in-out alternate;
+}
+
+// anmation bounce Fade
+@keyframes bounceFade {
+  0% {
+    // transform: scale(0.5);
+    opacity: .1;
+  }
+
+  100% {
+    // transform: scale(1);
+    opacity: .8;
+  }
+  
+}
+
+
 .circle_left {
   position: absolute;
   top: -80px;
@@ -789,10 +824,12 @@
 
 .main-title {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   width: fit-content;
   color: $main;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
   margin-bottom: 7px;
   letter-spacing: 0.6px;
@@ -825,6 +862,10 @@
     .line {
       background: $main;
     }
+  }
+
+  .title_icon{
+    max-width: 18px;
   }
 }
 
@@ -1928,8 +1969,8 @@
     border: 1px solid $border-input;
     background-color: $white;
     font-weight: 500;
-    border-start-end-radius: 8px;
-    border-end-start-radius: 8px;
+    // border-start-end-radius: 8px;
+    // border-end-start-radius: 8px;
 
     &.photo-input {
       display: flex;
