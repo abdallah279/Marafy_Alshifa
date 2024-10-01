@@ -181,7 +181,7 @@ $(document).ready(function () {
     items: 2,
     loop: true,
     rtl: isRtl,
-    margin: 35,
+    margin: 45,
     dots: false,
     autoplay: true,
     slideTransition: "linear",
@@ -190,7 +190,7 @@ $(document).ready(function () {
     autoplayHoverPause: true,
     responsive: {
       1000: {
-        items: 6,
+        items: 5,
       },
       800: {
         items: 4,
@@ -202,26 +202,6 @@ $(document).ready(function () {
     },
   });
 
-  /************ customers Carousel ***********/
-  const owlCustomers = $(".customers-slider");
-
-  owlCustomers.owlCarousel({
-    items: 1,
-    rtl: isRtl,
-    autoplaySpeed: 3000,
-    autoplayTimeout: 5000,
-    smartSpeed: 2000,
-    autoplayHoverPause: false,
-    margin: 25,
-    loop: true,
-    dots: true,
-    nav: true,
-    autoplay: true,
-    navText: [
-      `<i class="fa-solid fa-arrow-right-long"></i>`,
-      `<i class="fa-solid fa-arrow-left-long"></i>`,
-    ],
-  });
 });
 
 /************ faq Collapse ***********/
