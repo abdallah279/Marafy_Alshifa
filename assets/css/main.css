@@ -3489,7 +3489,6 @@ html[lang=ar] .remove-img-2 {
 @media screen and (max-width: 992px) {
   .page-navbar {
     position: unset;
-    padding: 8px 0;
   }
 }
 .page-navbar .navbar_con {
@@ -3503,6 +3502,13 @@ html[lang=ar] .remove-img-2 {
   height: 110px;
   background-color: #f8f8f8;
   flex-shrink: 0;
+}
+@media screen and (max-width: 992px) {
+  .page-navbar .navbar_con .logo_con {
+    width: 160px;
+    height: 100px;
+    display: none;
+  }
 }
 .page-navbar .navbar_con .logo_con .logo-img {
   max-width: 160px;
@@ -3525,10 +3531,26 @@ html[lang=ar] .remove-img-2 {
   justify-content: space-between;
   color: #fff;
 }
+@media screen and (max-width: 992px) {
+  .page-navbar .navbar-content .top {
+    padding: 10px 20px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .page-navbar .navbar-content .top {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
 .page-navbar .navbar-content .top .right {
   display: flex;
   align-items: center;
   gap: 35px;
+}
+@media screen and (max-width: 992px) {
+  .page-navbar .navbar-content .top .right {
+    gap: 15px;
+  }
 }
 .page-navbar .navbar-content .top .right .right_item {
   display: flex;
@@ -3558,6 +3580,25 @@ html[lang=ar] .remove-img-2 {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+@media screen and (max-width: 992px) {
+  .page-navbar .navbar-content .bottom {
+    padding: 10px 20px;
+  }
+}
+.page-navbar .navbar-content .bottom .logo {
+  display: none;
+  max-width: 100px;
+  max-height: 90px;
+}
+.page-navbar .navbar-content .bottom .logo img {
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 992px) {
+  .page-navbar .navbar-content .bottom .logo {
+    display: block;
+  }
 }
 .page-navbar .navbar-content .links {
   display: flex;
@@ -3612,18 +3653,8 @@ html[lang=ar] .remove-img-2 {
     background-color: #eb0c2a;
   }
 }
-.page-navbar .navbar-content .links .logo {
-  display: none;
-  max-width: 100px;
-  max-height: 90px;
-}
-.page-navbar .navbar-content .links .logo img {
-  width: 100%;
-  height: 100%;
-}
 @media screen and (max-width: 992px) {
   .page-navbar .navbar-content .links .logo {
-    display: block;
     margin: 0 auto 25px;
   }
 }
@@ -3699,6 +3730,7 @@ html[lang=ar] .remove-img-2 {
   display: flex;
   align-items: center;
   gap: 15px;
+  margin-inline-start: auto;
 }
 @media screen and (min-width: 992px) and (max-width: 1200px) {
   .page-navbar .navbar-content .nav-icons {
@@ -4204,6 +4236,14 @@ html[lang=ar] .footer-left-img {
   position: relative;
   top: 44px;
 }
+@media screen and (max-width: 992px) {
+  .home-sec {
+    top: 0;
+  }
+  .home-sec .owl-dots, .home-sec .owl-nav {
+    display: none !important;
+  }
+}
 .home-sec .home-item {
   position: relative;
   height: calc(100vh - 44px);
@@ -4355,6 +4395,11 @@ html[lang=ar] .home-sec .owl-nav {
   opacity: 0.3;
   z-index: 3;
   animation: bounceIn 2.5s infinite linear alternate;
+}
+@media screen and (max-width: 576px) {
+  .home-sec .hea {
+    max-width: 100px;
+  }
 }
 
 @keyframes bounceIn {
@@ -4803,9 +4848,6 @@ html[lang=ar] .services-card .main-btn {
   -webkit-text-stroke-color: #fff;
 }
 @media screen and (max-width: 425px) {
-  .services-card .image {
-    height: 200px;
-  }
   .services-card .service-content .service-name {
     font-size: 14px;
   }
@@ -4908,6 +4950,12 @@ html[lang=ar] .team-slider .owl-nav {
   height: 120px;
   position: relative;
 }
+@media screen and (max-width: 425px) {
+  .client-item {
+    width: 160px;
+    height: 100px;
+  }
+}
 .client-item::after, .client-item::before {
   content: "";
   position: absolute;
@@ -4938,6 +4986,12 @@ html[lang=ar] .client-item::before {
 .brand-img {
   max-width: 150px;
   max-height: 75px;
+}
+@media screen and (max-width: 425px) {
+  .brand-img {
+    max-width: 100px;
+    max-height: 70px;
+  }
 }
 
 /********************* End client-item section *********************/
@@ -5290,6 +5344,11 @@ html[lang=ar] .gallary .gallary-item .fancybox-img {
   z-index: 2;
   border: 1px dashed #e7e7e7;
   background-color: #fff;
+}
+@media screen and (max-width: 425px) {
+  .contact-form {
+    padding: 30px 15px;
+  }
 }
 
 /********************* End Contact section *********************/

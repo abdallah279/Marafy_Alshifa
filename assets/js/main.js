@@ -135,6 +135,9 @@ $(document).ready(function () {
       560: {
         items: 2,
       },
+      400: {
+        items: 1,
+      },
     },
   });
 
@@ -166,6 +169,9 @@ $(document).ready(function () {
       560: {
         items: 2,
       },
+      400: {
+        items: 1,
+      },
     },
   });
 
@@ -193,10 +199,10 @@ $(document).ready(function () {
         items: 5,
       },
       800: {
-        items: 4,
+        items: 3,
       },
       400: {
-        items: 3,
+        items: 2,
         margin: 20,
       },
     },

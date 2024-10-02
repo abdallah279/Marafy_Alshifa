@@ -10,7 +10,7 @@
 
   @media screen and (max-width: $screen-lg) {
     position: unset;
-    padding: 8px 0;
+    // padding: 8px 0;
   }
 
   .navbar_con {
@@ -23,6 +23,12 @@
       height: 110px;
       background-color: #f8f8f8;
       flex-shrink: 0;
+
+      @media screen and (max-width: $screen-lg) {
+        width: 160px;
+        height: 100px;
+        display: none;
+      }
 
       .logo-img {
         max-width: 160px;
@@ -45,10 +51,23 @@
       @include between;
       color: $white;
 
+      @media screen and (max-width: $screen-lg) {
+        padding: 10px 20px;
+      }
+
+      @media screen and (max-width: $screen-sm) {
+        flex-direction: column;
+        gap: 15px;
+      }
+
       .right {
         display: flex;
         align-items: center;
         gap: 35px;
+
+        @media screen and (max-width: $screen-lg) {
+          gap: 15px;
+        }
 
         .right_item {
           display: flex;
@@ -90,6 +109,26 @@
       padding: 0 40px;
       @include between;
       border-bottom: 1px solid rgba($color: #fff, $alpha: .2);
+
+      @media screen and (max-width: $screen-lg) {
+        padding: 10px 20px;
+      }
+
+      .logo {
+        display: none;
+        max-width: 100px;
+        max-height: 90px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+
+        @media screen and (max-width: $screen-lg) {
+          display: block;
+        }
+      }
+
     }
 
     .links {
@@ -146,17 +185,7 @@
       }
 
       .logo {
-        display: none;
-        max-width: 100px;
-        max-height: 90px;
-
-        img {
-          width: 100%;
-          height: 100%;
-        }
-
         @media screen and (max-width: $screen-lg) {
-          display: block;
           margin: 0 auto 25px;
         }
       }
@@ -238,6 +267,7 @@
       display: flex;
       align-items: center;
       gap: 15px;
+      margin-inline-start: auto;
 
       @media screen and (min-width: $screen-lg) and (max-width: $screen-lg2) {
         gap: 8px;
