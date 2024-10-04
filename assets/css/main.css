@@ -660,6 +660,11 @@ html[lang=en] .bg_left {
 html[lang=ar] .bg_left {
   right: 0;
 }
+@media screen and (max-width: 425px) {
+  .bg_left {
+    max-width: 200px;
+  }
+}
 
 .center_bg {
   position: absolute;
@@ -708,6 +713,11 @@ html[lang=en] .circle_left.left {
 }
 html[lang=ar] .circle_left.left {
   left: 2px;
+}
+@media screen and (max-width: 425px) {
+  .circle_left {
+    max-width: 150px;
+  }
 }
 
 .dots_left {
@@ -1352,7 +1362,7 @@ html[lang=ar] .copy-item {
   border-end-start-radius: 5px;
 }
 
-.border_r2, .package_card .head, .package_card, .blog-img_d, .blog_det_con, .services-details .services_det_img .img, .services-details .services_det_img::before, .services-details .services_det_img::after, .blog_date.price, .blog_con .blog_sidebar .blog_items .blog_item, .blog_con .blog_sidebar, .our-numbers .number-items .number-item, .contact_box, .select ~ .select2 .select2-selection--single,
+.border_r2, .package_card .head, .package_card, .blog-img_d, .blog_det_con, .services-details .services_det_img .img, .services-details .services_det_img::before, .services-details .services_det_img::after, .blog_date.price, .blog_con .blog_sidebar .blog_items .blog_item, .blog_con .blog_sidebar, .our-numbers .number-items .number-item, .select ~ .select2 .select2-selection--single,
 .select ~ .select2 .select2-selection--multiple,
 .select-multi ~ .select2 .select2-selection--single,
 .select-multi ~ .select2 .select2-selection--multiple,
@@ -4240,7 +4250,8 @@ html[lang=ar] .footer-left-img {
   .home-sec {
     top: 0;
   }
-  .home-sec .owl-dots, .home-sec .owl-nav {
+  .home-sec .owl-dots,
+  .home-sec .owl-nav {
     display: none !important;
   }
 }
@@ -4561,6 +4572,18 @@ html[lang=ar] .about-content .about-img .logo {
   max-width: -moz-fit-content;
   max-width: fit-content;
 }
+.about-content.sm {
+  align-items: center;
+}
+.about-content.sm .about-img {
+  height: 400px;
+}
+
+.our_cards {
+  background-color: rgba(242, 245, 247, 0.5607843137);
+  padding: 18px;
+  border-radius: 10px !important;
+}
 
 .our_card {
   display: flex;
@@ -4620,6 +4643,52 @@ html[lang=ar] .our_card .number::before {
 }
 .our_card:hover .number::before {
   width: 100%;
+}
+@media screen and (max-width: 425px) {
+  .our_card {
+    flex-direction: column;
+    padding: 25px 15px;
+    gap: 15px;
+  }
+  .our_card .number {
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .our_card .number .img {
+    max-width: 25px;
+  }
+  .our_card .name,
+  .our_card .text {
+    text-align: center;
+  }
+}
+.our_card.sm {
+  flex-direction: column;
+  padding: 25px 15px;
+  margin-bottom: 0;
+  box-shadow: unset;
+}
+.our_card.sm .number {
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 75px;
+}
+.our_card.sm .number .img {
+  max-width: 30px;
+}
+.our_card.sm .name,
+.our_card.sm .text {
+  text-align: center;
+}
+.our_card.sm .name {
+  margin-bottom: 15px;
 }
 
 .Our_values_sec {
@@ -5137,8 +5206,13 @@ html[lang=ar] .team-card .team-content {
   visibility: visible;
 }
 @media screen and (max-width: 576px) {
-  .team-card {
-    height: 260px;
+  .team-card .team-img {
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50% !important;
+  }
+  .team-card .team-content {
+    width: calc(100% - 40px);
   }
   .team-card .team-content .name {
     font-size: 14px;
@@ -5149,56 +5223,85 @@ html[lang=ar] .team-card .team-content {
 }
 
 /********************* End team-card section *********************/
-/********************* Start gallary section *********************/
+/********************* Start Gallary section *********************/
 .gallary {
-  gap: 30px;
+  display: grid;
+  grid-template-areas: "header sec three three" "header four five six" "seven seven last six";
+  gap: 10px;
+  grid-auto-rows: 200px;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 992px) {
+  .gallary {
+    grid-auto-rows: 180px;
+  }
+}
+@media screen and (max-width: 768px) {
   .gallary {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-    gap: 15px;
+    gap: 12px 10px;
+    grid-template-areas: unset;
   }
 }
-.gallary .gallary-item {
-  height: 220px;
-  position: relative;
-  transition: all 0.4s ease-in-out;
-  margin-bottom: 15px;
-}
-@media screen and (max-width: 425px) {
-  .gallary .gallary-item {
-    height: 195px;
-  }
-}
-.gallary .gallary-item .fancybox-img {
-  position: absolute;
-  bottom: -20px;
-  background: #eb0c2a !important;
-  z-index: 3;
+.gallary .fancybox-img {
+  border-radius: 5px;
   overflow: hidden;
-  border: 1px solid #eb0c2a;
+  position: relative;
 }
-html[lang=en] .gallary .gallary-item .fancybox-img {
-  right: 20px;
+.gallary .fancybox-img::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
-html[lang=ar] .gallary .gallary-item .fancybox-img {
-  left: 20px;
-}
-.gallary .gallary-item .gallary-img {
+.gallary .fancybox-img .gallary-img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  transition: all 0.4s ease-in-out;
-  border-start-end-radius: 14px;
-  border-end-start-radius: 14px;
+  transition: all 0.3s ease;
 }
-.gallary .gallary-item:hover {
-  transform: translateY(-7px);
+.gallary .fancybox-img:hover::after {
+  opacity: 0;
+}
+.gallary .fancybox-img:hover .gallary-img {
+  transform: scale(1.1);
+}
+.gallary .fancybox-img:first-child {
+  grid-area: header;
+}
+.gallary .fancybox-img:nth-child(2) {
+  grid-area: sec;
+}
+.gallary .fancybox-img:nth-child(3) {
+  grid-area: three;
+}
+.gallary .fancybox-img:nth-child(4) {
+  grid-area: four;
+}
+.gallary .fancybox-img:nth-child(5) {
+  grid-area: five;
+}
+.gallary .fancybox-img:nth-child(6) {
+  grid-area: six;
+}
+.gallary .fancybox-img:nth-child(7) {
+  grid-area: seven;
+}
+.gallary .fancybox-img:nth-child(8) {
+  grid-area: last;
+}
+@media screen and (max-width: 768px) {
+  .gallary .fancybox-img {
+    grid-area: unset !important;
+  }
 }
 
-/********************* End gallary section *********************/
+/********************* End Gallary section *********************/
 /********************* Start Video section *********************/
 .video-card {
   background-color: #fff;
@@ -5267,7 +5370,7 @@ html[lang=ar] .gallary .gallary-item .fancybox-img {
   height: 432px;
 }
 .map.home {
-  height: 100% !important;
+  height: 100%;
 }
 @media screen and (max-width: 992px) {
   .map {
@@ -5275,65 +5378,66 @@ html[lang=ar] .gallary .gallary-item .fancybox-img {
   }
 }
 
-.contact-style {
-  height: 100%;
+/********************* Start contact-box section *********************/
+.contact-box {
+  border: 1px dashed #e7e7e7;
   background-color: #fff;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-  padding: 70px 50px;
-  border-start-end-radius: 50px;
-  border-end-start-radius: 50px;
-}
-@media screen and (max-width: 992px) {
-  .contact-style {
-    padding: 30px 20px;
-    border-radius: 0;
-  }
-}
-
-.contact-title {
-  font-size: 17px;
-  font-weight: 600;
-  color: #000;
-  margin-bottom: 10px;
-}
-@media screen and (max-width: 425px) {
-  .contact-title {
-    font-size: 15px;
-  }
-}
-
-.contact-info {
-  font-size: 14px;
-  color: #000;
-  margin-bottom: 35px;
-  line-height: 1.7;
-}
-@media screen and (max-width: 425px) {
-  .contact-info {
-    font-size: 13px;
-  }
-}
-
-.contact_box {
+  padding: 25px;
+  transition: all 0.3s ease;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
   flex-direction: column;
-  background-color: #eb0c2a;
-  padding: 15px;
-  color: #fff;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
 }
-.contact_box .name {
+@media screen and (max-width: 768px) {
+  .contact-box {
+    padding: 15px;
+    gap: 12px;
+  }
+}
+.contact-box .ic {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 7px;
+  background-color: #eb0c2a;
+  font-size: 16px;
+  color: #fff;
+  transition: all 0.3s ease;
 }
-.contact_box .name i {
-  margin-top: 3px;
+@media screen and (max-width: 768px) {
+  .contact-box .ic {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+.contact-box .name {
+  font-size: 17px;
+  color: #000;
+}
+@media screen and (max-width: 768px) {
+  .contact-box .name {
+    font-size: 15px;
+  }
+}
+.contact-box .desc {
+  font-size: 14px;
+  color: #000;
+}
+@media screen and (max-width: 768px) {
+  .contact-box .desc {
+    font-size: 13px;
+  }
+}
+.contact-box:hover {
+  transform: translateY(-10px);
+}
+.contact-box:hover .ic {
+  background-color: #f96b73;
 }
 
 .contact-form {
@@ -5378,7 +5482,7 @@ html[lang=ar] .gallary .gallary-item .fancybox-img {
      object-fit: cover;
 }
 .page-top .page-info {
-  padding: 180px 0 50px;
+  padding: 200px 0 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
