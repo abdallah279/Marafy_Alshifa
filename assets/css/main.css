@@ -3534,7 +3534,7 @@ html[lang=ar] .remove-img-2 {
   width: 100%;
 }
 .page-navbar .navbar-content .top {
-  background-color: #f96b73;
+  background-color: #eb0c2a;
   padding: 12px 40px;
   display: flex;
   align-items: center;
@@ -5378,7 +5378,7 @@ html[lang=ar] .team-card .team-content {
   }
 }
 
-/********************* Start contact-box section *********************/
+/*** contact-box ***/
 .contact-box {
   border: 1px dashed #e7e7e7;
   background-color: #fff;
@@ -5776,70 +5776,157 @@ html[lang=ar] .blog_date.user {
 }
 
 /********************* End blog_con section *********************/
-/********************* Start FAQ section *********************/
-.faq-collapse {
-  margin-bottom: 15px;
-}
-.faq-collapse .faq-open {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 20px;
-  background-color: #f9f9f9;
-  color: #000;
-  font-size: 15px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border-start-end-radius: 12px;
-  border-end-start-radius: 12px;
+/********************* Start faqs section *********************/
+/**** Accordion ****/
+.accordion-item {
+  margin-bottom: 20px;
+  border: none;
+  padding: 0 20px;
+  border-radius: 0px !important !important;
+  position: relative;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.06);
+  overflow: hidden;
 }
 @media screen and (max-width: 425px) {
-  .faq-collapse .faq-open {
+  .accordion-item {
+    padding: 0 10px;
+  }
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(-7deg);
+  }
+}
+.accordion-item .circle1,
+.accordion-item .circle2 {
+  position: absolute;
+  top: -50px;
+  width: 95px;
+  height: 95px;
+  border-radius: 50% !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transform-origin: 200% center;
+  animation: rotate 3s linear alternate infinite, rotate 3s linear alternate infinite;
+}
+@media screen and (max-width: 425px) {
+  .accordion-item .circle1,
+  .accordion-item .circle2 {
+    width: 75px;
+    height: 75px;
+    border-radius: 50% !important;
+  }
+}
+.accordion-item .circle1 {
+  background-color: #f96b73;
+  opacity: 0.7;
+  z-index: 3;
+}
+html[lang=en] .accordion-item .circle1 {
+  right: 2px;
+}
+html[lang=ar] .accordion-item .circle1 {
+  left: 2px;
+}
+.accordion-item .circle2 {
+  background-color: #eb0c2a;
+  opacity: 0.4;
+  z-index: 2;
+  animation-delay: 1.5s;
+}
+html[lang=en] .accordion-item .circle2 {
+  right: -40px;
+}
+html[lang=ar] .accordion-item .circle2 {
+  left: -40px;
+}
+.accordion-item:last-child {
+  margin-bottom: 0;
+}
+.accordion-item:has(.collapsed) .circle1,
+.accordion-item:has(.collapsed) .circle2 {
+  animation: none;
+}
+.accordion-item .accordion-button {
+  background-color: transparent;
+  padding: 12px 0;
+  font-size: 15px;
+  border-radius: 3px;
+  color: #eb0c2a;
+  border: none;
+  box-shadow: none !important;
+  padding-inline-start: 20px;
+  position: relative;
+  font-weight: 500;
+  z-index: 5;
+}
+.accordion-item .accordion-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50% !important;
+  background-color: #f96b73;
+}
+html[lang=en] .accordion-item .accordion-button::before {
+  left: 0;
+}
+html[lang=ar] .accordion-item .accordion-button::before {
+  right: 0;
+}
+@media screen and (max-width: 425px) {
+  .accordion-item .accordion-button::before {
+    width: 11px;
+    height: 11px;
+    border-radius: 50% !important;
+  }
+}
+@media screen and (max-width: 425px) {
+  .accordion-item .accordion-button {
+    font-size: 14px;
+    padding-inline-start: 16px;
+  }
+}
+.accordion-item .accordion-button::after {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% !important;
+  background-color: #eb0c2a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: none;
+  content: "+";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 800;
+  color: #fff;
+  font-size: 13px;
+  z-index: 5;
+}
+@media screen and (max-width: 425px) {
+  .accordion-item .accordion-button::after {
+    width: 24px;
+    height: 24px;
+    border-radius: 50% !important;
+    font-size: 11px;
+  }
+}
+.accordion-item .accordion-button:not(.collapsed)::after {
+  content: "\f068";
+}
+.accordion-item .accordion-body {
+  padding: 0.5rem 0.7rem 1rem;
+  line-height: 1.9;
+}
+@media screen and (max-width: 425px) {
+  .accordion-item .accordion-body {
     font-size: 13px;
   }
 }
-.faq-collapse .faq-open i {
-  transition: all 0.3s ease;
-  font-size: 13px;
-}
-.faq-collapse .faq-content {
-  padding: 15px 25px;
-  background-color: #FAFAFA;
-  color: #000;
-  font-size: 14px;
-  line-height: 1.9;
-  display: none;
-}
-.faq-collapse.active .faq-open {
-  background-color: #eb0c2a;
-  color: #fff;
-}
-.faq-collapse.active .faq-open i {
-  transform: rotateX(180deg);
-}
 
-@media screen and (max-width: 600px) {
-  .faq-collapse .faq-open {
-    padding: 15px;
-  }
-  .faq-collapse .faq-content {
-    padding: 15px;
-    font-size: 13px !important;
-  }
-}
-.faq-item {
-  background-color: #f9f9f9;
-  padding: 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.faq-item:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-/********************* End FAQ section *********************/
+/********************* End faqs section *********************/
 /********************* Start services-details section *********************/
 .services-details {
   display: flex;
