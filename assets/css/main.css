@@ -1357,12 +1357,12 @@ html[lang=ar] .copy-item {
   max-height: 16px;
 }
 
-.border_r1, .video-card .video-container .play-v, .about-content .content .main-title .icon, .page-navbar .navbar-content .nav-icons .nav-ic {
+.border_r1, .about-content .content .main-title .icon, .page-navbar .navbar-content .nav-icons .nav-ic {
   border-start-end-radius: 5px;
   border-end-start-radius: 5px;
 }
 
-.border_r2, .package_card .head, .package_card, .blog-img_d, .blog_det_con, .services-details .services_det_img .img, .services-details .services_det_img::before, .services-details .services_det_img::after, .blog_date.price, .blog_con .blog_sidebar .blog_items .blog_item, .blog_con .blog_sidebar, .our-numbers .number-items .number-item, .select ~ .select2 .select2-selection--single,
+.border_r2, .blog-img_d, .blog_det_con, .services-details .services_det_img .img, .services-details .services_det_img::before, .services-details .services_det_img::after, .blog_date.price, .blog_con .blog_sidebar .blog_items .blog_item, .blog_con .blog_sidebar, .select ~ .select2 .select2-selection--single,
 .select ~ .select2 .select2-selection--multiple,
 .select-multi ~ .select2 .select2-selection--single,
 .select-multi ~ .select2 .select2-selection--multiple,
@@ -5305,8 +5305,7 @@ html[lang=ar] .team-card .team-content {
 /********************* Start Video section *********************/
 .video-card {
   background-color: #fff;
-  border-start-end-radius: 14px;
-  border-end-start-radius: 14px;
+  border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
 }
@@ -5335,7 +5334,7 @@ html[lang=ar] .team-card .team-content {
   outline-color: rgba(246, 115, 17, 0.568627451);
 }
 .video-card .video-container .play-v {
-  background-color: rgba(235, 12, 42, 0.8);
+  background-color: rgba(249, 107, 115, 0.8);
   font-size: 15px;
   width: 40px;
   height: 40px;
@@ -5368,6 +5367,8 @@ html[lang=ar] .team-card .team-content {
 .map {
   width: 100%;
   height: 432px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .map.home {
   height: 100%;
@@ -5519,101 +5520,6 @@ html[lang=ar] .team-card .team-content {
 }
 
 /********************* End page-header section *********************/
-/********************* Start numbers section *********************/
-.our-numbers {
-  position: relative;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  z-index: 2;
-}
-.our-numbers::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(10, 17, 40, 0.7);
-  z-index: -1;
-}
-.our-numbers .number-items {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-@media screen and (max-width: 576px) {
-  .our-numbers .number-items {
-    gap: 20px;
-  }
-}
-.our-numbers .number-items .number-item {
-  text-align: center;
-  color: #000;
-  background-color: #fff;
-  padding: 20px 25px;
-  position: relative;
-  z-index: 2;
-}
-@media screen and (max-width: 425px) {
-  .our-numbers .number-items .number-item {
-    padding: 20px 15px;
-  }
-}
-.our-numbers .number-items .number-item::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 14px;
-  height: 14px;
-  background-color: #eb0c2a;
-  z-index: -1;
-  border-start-end-radius: 5px;
-}
-html[lang=en] .our-numbers .number-items .number-item::after {
-  left: 0;
-}
-html[lang=ar] .our-numbers .number-items .number-item::after {
-  right: 0;
-}
-.our-numbers .number-items .number-item .img {
-  position: absolute;
-  top: 3px;
-  max-width: 30px;
-  z-index: -1;
-  -o-object-fit: cover;
-     object-fit: cover;
-  filter: invert(1);
-  opacity: 0.1;
-}
-html[lang=en] .our-numbers .number-items .number-item .img {
-  right: 3px;
-}
-html[lang=ar] .our-numbers .number-items .number-item .img {
-  left: 3px;
-}
-.our-numbers .number-items .number-item .num {
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-@media screen and (max-width: 576px) {
-  .our-numbers .number-items .number-item .num {
-    font-size: 18px;
-  }
-}
-.our-numbers .number-items .number-item .text {
-  font-size: 15px;
-}
-@media screen and (max-width: 576px) {
-  .our-numbers .number-items .number-item .text {
-    font-size: 14px;
-  }
-}
-
-/********************* End numbers section *********************/
 /********************* Start blog_con section *********************/
 .blog_con {
   display: flex;
@@ -5777,7 +5683,6 @@ html[lang=ar] .blog_date.user {
 
 /********************* End blog_con section *********************/
 /********************* Start faqs section *********************/
-/**** Accordion ****/
 .accordion-item {
   margin-bottom: 20px;
   border: none;
@@ -6069,187 +5974,4 @@ html[lang=ar] .services-details .services_det_img::after {
   }
 }
 
-/********************* End blog details section *********************/
-/********************* Start certificate_card section *********************/
-.certificate_card {
-  background-color: #fff;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-  border-start-end-radius: 14px;
-  border-end-start-radius: 14px;
-  position: relative;
-}
-.certificate_card::after {
-  position: absolute;
-  content: "";
-  width: 70px;
-  height: 70px;
-  border: 2px solid rgba(235, 12, 42, 0.2);
-  top: -12px;
-  z-index: -1;
-  border-start-end-radius: 14px;
-  border-end-start-radius: 14px;
-}
-html[lang=en] .certificate_card::after {
-  right: -12px;
-}
-html[lang=ar] .certificate_card::after {
-  left: -12px;
-}
-.certificate_card .image {
-  width: 100%;
-  height: 140px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid #F2F5F7;
-}
-.certificate_card .image img {
-  max-width: 170px;
-  max-height: 65px;
-}
-.certificate_card .content {
-  padding: 15px;
-}
-.certificate_card .content .title {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  transition: all 0.3s ease;
-}
-.certificate_card .content .title.link_l {
-  display: block;
-  text-align: center;
-  font-size: 13px;
-}
-.certificate_card .content .title.link_l:hover {
-  color: #eb0c2a;
-}
-.certificate_card .content .text {
-  line-height: 1.8;
-  font-size: 13px;
-}
-
-/********************* End certificate_card section *********************/
-/********************* Start Book section *********************/
-.ipgs-flipbook {
-  direction: ltr;
-  height: 500px !important;
-  width: 680px !important;
-  margin: auto !important;
-}
-@media screen and (max-width: 992px) {
-  .ipgs-flipbook {
-    width: 100% !important;
-  }
-}
-
-.main-input.search .input-me {
-  background-color: #f8f8f8;
-}
-@media screen and (max-width: 425px) {
-  .main-input.search .input-me {
-    min-height: 48px !important;
-  }
-}
-.main-input.search .main-icon {
-  pointer-events: auto;
-  background-color: #eb0c2a;
-  color: #fff;
-  height: 100%;
-}
-html[lang=en] .main-input.search .main-icon {
-  right: 0;
-}
-html[lang=ar] .main-input.search .main-icon {
-  left: 0;
-}
-@media screen and (max-width: 425px) {
-  .main-input.search .main-icon {
-    min-width: 100px;
-  }
-}
-
-/********************* End Book section *********************/
-/***************** Start package_card *********************/
-.package_card {
-  display: block;
-  background-color: #fff;
-  padding: 20px 20px 30px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.03);
-  height: 100%;
-  color: #000 !important;
-  border: 1px solid rgba(235, 12, 42, 0.5);
-  transition: all 0.3s ease;
-}
-.package_card .head {
-  padding: 24px 15px;
-  background-color: rgba(235, 12, 42, 0.1);
-}
-.package_card .price {
-  color: #106390;
-}
-.package_card .text,
-.package_card i {
-  color: #272727;
-}
-.package_card .main-btn {
-  border-radius: 5px !important;
-}
-.package_card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(235, 12, 42, 0.5);
-}
-
-/***************** End package_card *********************/
-/***************** Start  *********************/
-.invoices {
-  overflow-x: auto;
-}
-.invoices::-webkit-scrollbar {
-  height: 4px;
-}
-.invoices::-webkit-scrollbar-track {
-  background: transparent;
-}
-.invoices::-webkit-scrollbar-thumb {
-  border-radius: 25px;
-}
-
-.invoices-table {
-  width: 100%;
-  white-space: nowrap;
-}
-.invoices-table thead th {
-  padding: 15px 10px;
-  text-align: center;
-  font-size: 16px;
-  color: #272727;
-  font-weight: 600;
-  background-color: rgba(235, 12, 42, 0.1);
-}
-@media screen and (max-width: 425px) {
-  .invoices-table thead th {
-    font-size: 14px;
-    padding: 15px 12px;
-  }
-}
-.invoices-table tbody tr td {
-  font-size: 15px;
-  color: #272727;
-  padding: 20px 10px;
-  text-align: center;
-  vertical-align: middle;
-}
-@media screen and (max-width: 425px) {
-  .invoices-table tbody tr td {
-    font-size: 13px;
-    padding: 15px 12px;
-  }
-}
-.invoices-table tbody tr:nth-child(even) {
-  background-color: rgba(243, 243, 243, 0.3);
-}
-
-/***************** End  *********************//*# sourceMappingURL=main.css.map */
+/********************* End blog details section *********************//*# sourceMappingURL=main.css.map */

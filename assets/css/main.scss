@@ -1028,7 +1028,6 @@
 
 /********************* Start Gallary section *********************/
 .gallary {
-
   display: grid;
   grid-template-areas:
     'header sec three three'
@@ -1120,14 +1119,11 @@
 /********************* End Gallary section *********************/
 
 
-
-
 /********************* Start Video section *********************/
 
 .video-card {
   background-color: $white;
-  border-start-end-radius: 14px;
-  border-end-start-radius: 14px;
+  border-radius: 5px;
   overflow: hidden;
   box-shadow: $main-shadow;
 
@@ -1157,7 +1153,7 @@
     }
 
     .play-v {
-      background-color: rgba($color: $main, $alpha: 0.8);
+      background-color: rgba($color: $sec, $alpha: 0.8);
       font-size: 15px;
       @include shape(40px);
       color: #fff;
@@ -1165,7 +1161,7 @@
       @include center;
       outline: 5px solid transparent;
       transition: $main-transition;
-      @extend .border_r1;
+      // @extend .border_r1;
     }
   }
 
@@ -1194,6 +1190,7 @@
   width: 100%;
   height: 432px;
   // border-radius: 15px;
+  object-fit: cover;
 
   &.home {
     height: 100%;
@@ -1316,6 +1313,7 @@
 
 /********************* End Contact section *********************/
 
+
 /********************* Start page-header section *********************/
 
 .page-top {
@@ -1378,95 +1376,6 @@
 }
 
 /********************* End page-header section *********************/
-
-
-/********************* Start numbers section *********************/
-
-.our-numbers {
-  position: relative;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  z-index: 2;
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba($color: #0a1128, $alpha: 0.7);
-    z-index: -1;
-  }
-
-  .number-items {
-    @include center;
-    flex-wrap: wrap;
-    gap: 30px;
-
-    @media screen and (max-width: $screen-sm) {
-      gap: 20px;
-    }
-
-    .number-item {
-      text-align: center;
-      color: $black;
-      background-color: $white;
-      padding: 20px 25px;
-      position: relative;
-      z-index: 2;
-      @extend .border_r2;
-
-      @media screen and (max-width: $screen-xs) {
-        padding: 20px 15px;
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        @include dir-left(0);
-        width: 14px;
-        height: 14px;
-        background-color: $main;
-        z-index: -1;
-        border-start-end-radius: 5px;
-      }
-
-      .img {
-        position: absolute;
-        top: 3px;
-        @include dir-right(3px);
-        max-width: 30px;
-        z-index: -1;
-        object-fit: cover;
-        filter: invert(1);
-        opacity: .1;
-      }
-
-      .num {
-        font-size: 22px;
-        margin-bottom: 10px;
-
-        @media screen and (max-width: $screen-sm) {
-          font-size: 18px;
-        }
-      }
-
-      .text {
-        font-size: 15px;
-
-        @media screen and (max-width: $screen-sm) {
-          font-size: 14px;
-        }
-      }
-    }
-  }
-}
-
-/********************* End numbers section *********************/
 
 
 /********************* Start blog_con section *********************/
@@ -1633,11 +1542,7 @@
 
 
 /********************* Start faqs section *********************/
-// .faqs_sec {
-//   @include border-radius(10px);
-// }
 
-/**** Accordion ****/
 .accordion-item {
   margin-bottom: 20px;
   border: none;
@@ -1770,6 +1675,7 @@
 
 /********************* End faqs section *********************/
 
+
 /********************* Start services-details section *********************/
 
 .services-details {
@@ -1841,6 +1747,7 @@
 }
 
 /********************* End services-details section *********************/
+
 
 /********************* Start blog details section *********************/
 
@@ -1914,210 +1821,3 @@
 }
 
 /********************* End blog details section *********************/
-
-/********************* Start certificate_card section *********************/
-
-.certificate_card {
-  background-color: $white;
-  box-shadow: $main-shadow;
-  border-start-end-radius: 14px;
-  border-end-start-radius: 14px;
-  position: relative;
-
-  &::after {
-    position: absolute;
-    content: "";
-    width: 70px;
-    height: 70px;
-    border: 2px solid rgba($color: $main, $alpha: .2);
-    @include dir-right(-12px);
-    top: -12px;
-    z-index: -1;
-    border-start-end-radius: 14px;
-    border-end-start-radius: 14px;
-  }
-
-  .image {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    @include center;
-    border-bottom: 1px solid $light;
-
-    img {
-      max-width: 170px;
-      max-height: 65px;
-    }
-  }
-
-  .content {
-    padding: 15px;
-
-    .title {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 10px;
-      transition: $main-transition;
-
-      &.link_l {
-        display: block;
-        text-align: center;
-        font-size: 13px;
-
-        &:hover {
-          color: $main;
-        }
-      }
-    }
-
-    .text {
-      line-height: 1.8;
-      font-size: 13px;
-    }
-  }
-}
-
-/********************* End certificate_card section *********************/
-
-/********************* Start Book section *********************/
-.ipgs-flipbook {
-  direction: ltr;
-  height: 500px !important;
-  width: 680px !important;
-  margin: auto !important;
-
-  @media screen and (max-width: $screen-lg) {
-    width: 100% !important;
-  }
-}
-
-.main-input.search {
-  .input-me {
-    // border-color: $main;
-    background-color: #f8f8f8;
-
-    @media screen and (max-width: $screen-xs) {
-      min-height: 48px !important;
-    }
-  }
-
-  .main-icon {
-    pointer-events: auto;
-    background-color: $main;
-    color: $white;
-    @include dir-right(0);
-    height: 100%;
-
-    @media screen and (max-width: $screen-xs) {
-      min-width: 100px;
-    }
-  }
-}
-
-/********************* End Book section *********************/
-
-/***************** Start package_card *********************/
-
-.package_card {
-  display: block;
-  background-color: $white;
-  // @include border-radius(15px);
-  @extend .border_r2;
-  padding: 20px 20px 30px;
-  box-shadow: 0 0 30px rgba($color: #000000, $alpha: 3%);
-  height: 100%;
-  color: $black !important;
-  border: 1px solid rgba($color: $main, $alpha: .5);
-  transition: $main-transition;
-
-  .head {
-    padding: 24px 15px;
-    @extend .border_r2;
-    background-color: rgba($color: $main, $alpha: .1);
-  }
-
-  .price {
-    color: #106390;
-  }
-
-  .text,
-  i {
-    color: $dark;
-  }
-
-  .main-btn {
-    @include border-radius(5px);
-  }
-
-  &:hover {
-    transform: translateY(-5px);
-    border-color: rgba($color: $main, $alpha: .5);
-  }
-}
-
-/***************** End package_card *********************/
-
-/***************** Start  *********************/
-.invoices {
-  overflow-x: auto;
-
-  &::-webkit-scrollbar {
-    height: 4px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    border-radius: 25px;
-    // background-color: $blue2;
-  }
-}
-
-.invoices-table {
-  width: 100%;
-  white-space: nowrap;
-
-  thead {
-    // border-bottom: 1px solid $border-color;
-
-    th {
-      padding: 15px 10px;
-      text-align: center;
-      font-size: 16px;
-      color: $dark;
-      font-weight: 600;
-      background-color: rgba($color: $main, $alpha: .1);
-
-      @media screen and (max-width: $screen-xs) {
-        font-size: 14px;
-        padding: 15px 12px;
-      }
-    }
-  }
-
-  tbody {
-
-    tr {
-      td {
-        font-size: 15px;
-        color: $dark;
-        padding: 20px 10px;
-        text-align: center;
-        vertical-align: middle;
-
-        @media screen and (max-width: $screen-xs) {
-          font-size: 13px;
-          padding: 15px 12px;
-        }
-      }
-
-      &:nth-child(even) {
-        background-color: rgba($color: #f3f3f3, $alpha: .3);
-      }
-    }
-  }
-}
-
-/***************** End  *********************/
