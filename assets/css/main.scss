@@ -79,6 +79,7 @@
       .title {
         font-size: 22px;
         color: $white;
+        font-weight: 600;
 
         @media screen and (max-width: $screen-sm) {
           font-size: 20px;
@@ -305,6 +306,13 @@
       display: flex;
       align-items: center;
       gap: 7px;
+
+      .btn{
+        cursor: unset;
+        outline: unset;
+        border: unset;
+        opacity: .7;
+      }
 
       .icon {
         @include shape(34px, 0);
@@ -710,6 +718,18 @@
 
       .desc {
         font-size: 13px;
+      }
+    }
+  }
+
+  &.det{
+    &::after{
+      display: none;
+    }
+
+    .small_icon{
+      &::before{
+        display: none;
       }
     }
   }
