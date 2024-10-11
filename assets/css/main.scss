@@ -307,7 +307,7 @@
       align-items: center;
       gap: 7px;
 
-      .btn{
+      .btn {
         cursor: unset;
         outline: unset;
         border: unset;
@@ -722,13 +722,13 @@
     }
   }
 
-  &.det{
-    &::after{
+  &.det {
+    &::after {
       display: none;
     }
 
-    .small_icon{
-      &::before{
+    .small_icon {
+      &::before {
         display: none;
       }
     }
@@ -1459,23 +1459,16 @@
 
 .blog_card {
   position: relative;
-  height: fit-content;
   z-index: 5;
-  background-color: $white;
-  padding: 7px;
-  border-start-end-radius: 20px;
-  border-end-start-radius: 20px;
-  box-shadow: $main-shadow;
+  // box-shadow: $main-shadow;
 
   .image {
     width: 100%;
-    height: 240px;
+    height: 420px;
     overflow: hidden;
-    border-start-end-radius: 20px;
-    border-end-start-radius: 20px;
 
     @media screen and (max-width: $screen-xs) {
-      height: 200px;
+      height: 340px;
     }
 
     .blog-img {
@@ -1489,8 +1482,12 @@
 
   .blog-content {
     transition: all 0.4s ease-in-out;
-    padding: 20px 10px 10px;
-    position: relative;
+    padding: 20px 10px 0;
+    position: absolute;
+    bottom: 25px;
+    @include dir-left(0);
+    background-color: $white;
+    width: calc(100% - 25px);
 
     .blog-name {
       color: $dark;
@@ -1508,10 +1505,42 @@
       font-size: 13px;
       color: $text-color;
       display: -webkit-box;
-      -webkit-line-clamp: 5;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
-      margin-bottom: 15px;
+      // margin-bottom: 15px;
       overflow: hidden;
+    }
+
+    .bottom {
+      padding: 12px 0;
+      margin-top: 12px;
+      border-top: 1px solid $border-input;
+      @include between;
+
+      .user{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: $text-color;
+        font-size: 13px;
+
+        .user_icon{
+          @include shape(30px, 50%);
+        }
+      }
+
+      .blog_link{
+        color: $main;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        i{
+          font-size: 9px;
+          // margin-top: 4px;
+        }
+      }
     }
 
     .main-btn {
@@ -1537,9 +1566,9 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  top: 20px;
-  @include dir-left(17px);
-  background-color: $main;
+  top: -15px;
+  @include dir-right(15px);
+  background-color: $sec;
   padding: 7px 15px;
   border-radius: 50px;
   color: $white;
@@ -1772,15 +1801,14 @@
 /********************* Start blog details section *********************/
 
 .blog_det_con {
-  background-color: $main;
+  background-color: $sec;
   color: $white;
   padding: 12px 20px;
   display: flex;
   gap: 15px 30px;
   align-items: center;
-  // justify-content: center;
+  justify-content: center;
   font-size: 14px;
-  @extend .border_r2;
   flex-wrap: wrap;
 
   .blog_date_det {
@@ -1798,7 +1826,6 @@
   width: 100%;
   height: 430px;
   object-fit: cover;
-  @extend .border_r2;
 
   @media screen and (max-width: $screen-xs) {
     height: 280px;
@@ -1841,3 +1868,63 @@
 }
 
 /********************* End blog details section *********************/
+
+/********************* start success_st_card *********************/
+.success_st_card {
+  border: 1px dashed #e7e7e7;
+  background-color: $white;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
+  @include border-radius(12px);
+  overflow: hidden;
+  transition: $main-transition;
+
+  .success_st_img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    // @extend .border_r2;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: $main-transition;
+    }
+  }
+
+  .success_st_info {
+    padding: 15px;
+
+    .date {
+      color: $main;
+      margin-bottom: 5px;
+    }
+
+    .success_st_head {
+      font-size: 16px;
+      margin-bottom: 10px;
+      font-weight: 600;
+      transition: $main-transition;
+    }
+
+    .success_st_text {
+      line-height: 1.8;
+      font-size: 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+
+    .success_st_head {
+      color: $main !important;
+    }
+  }
+}
+
+/********************* End success_st_card *********************/
