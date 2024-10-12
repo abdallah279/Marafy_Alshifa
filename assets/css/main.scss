@@ -880,102 +880,91 @@
 
 .team-card {
   position: relative;
-  // height: 320px;
   background-color: $white;
-  padding: 30px;
-  // gap: 15px;
-  display: flex;
-  align-items: center;
+  padding: 20px;
   z-index: 2;
   overflow: hidden;
   border: 2px dashed #ebf1f5;
-
 
   &::before,
   &::after {
     content: "";
     position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 250px;
-    height: 250px;
-    clip-path: polygon(30% 0%, 100% 100%, 100% 0);
+    top: 0;
+    width: 100px;
+    height: 70px;
     transition: $main-transition;
-  }
-
-  &::after {
     z-index: -2;
-    background-color: $main;
+    background-color: #ebf1f586;
+    clip-path: polygon(30% 0%, 100% 100%, 100% 0);
   }
-
+  
+  &::after {
+    @include dir-left(0px);
+  }
+  
   &::before {
-    z-index: -1;
-    background-color: #ebf1f5;
-    width: 0;
+    @include dir-right(0px);
+    transform: rotateY(180deg);
   }
 
   .team-img {
-    @include shape(120px !important, 50%);
+    height: 420px;
+    width: 100%;
     transition: all 600ms linear;
-    outline: 2px dashed $white;
-    outline-offset: 5px;
     flex-shrink: 0;
     position: relative;
     overflow: hidden;
+    border: 1px solid #ebf1f5;
 
     .img {
       object-fit: cover;
       width: 100%;
       height: 100%;
     }
-
-    .fancybox-img {
-      position: absolute;
-      bottom: 0;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 3;
-      background-color: rgba($color: #000000, $alpha: .5);
-      color: $white;
-      @include center;
-      font-size: 18px;
-      transition: $main-transition;
-      opacity: 0;
-    }
   }
 
-  .icon {
-    @include center;
-    @include shape(30px);
-    background-color: $main;
-    color: $white;
-    font-size: 15px;
-    position: absolute;
-    bottom: 0px;
-    @include dir-right(0);
-    z-index: 3;
-    display: none;
+  .team_con {
+    position: relative;
+    overflow: hidden;
   }
 
   .team-content {
     flex-shrink: 0;
-    background-color: #ebf1f5;
+    background-color: rgba($color: #000000, $alpha: .6);
     padding: 20px;
     width: 100%;
+    height: 100%;
     overflow: hidden;
-    position: relative;
-    z-index: -1;
-    padding-inline-start: 70px;
-    width: calc(100% - 70px);
-    transition: $main-transition;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 400ms ease-in-out;
+    opacity: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
 
-    #{$ltr} & {
-      transform: translateX(-50px);
+    ::-webkit-scrollbar {
+      width: 4px;
     }
 
-    #{$rtl} & {
-      transform: translateX(50px);
+    &::-webkit-scrollbar-thumb {
+      background-color: #ebf1f5;
+      border-radius: 0;
+    }
+
+    .top {
+      // background-color: rgba($color: #000000, $alpha: .7);
+      background-color: $white;
+      padding: 15px;
+      @include center;
+      margin-bottom: 25px;
+      flex-direction: column;
+      border: 1px dashed #ebf1f53e;
+      // gap: 7px;
     }
 
     .name {
@@ -983,7 +972,8 @@
       line-height: 1.2;
       transition: $main-transition;
       font-weight: 700;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
+      color: $main;
     }
 
     .jop {
@@ -993,27 +983,49 @@
       line-height: 1;
       transition: $main-transition;
     }
+
+    .team_list {
+      color: $white;
+      flex-grow: 1;
+
+      .team_list_item {
+        position: relative;
+        margin-bottom: 12px;
+        padding-inline-start: 22px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          @include dir-left(0);
+          top: 50%;
+          transform: translateY(-50%);
+          @include shape(12px, 0px);
+          background-color: $white;
+          z-index: 1;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          @include dir-left(4px);
+          top: 50%;
+          transform: translateY(-50%);
+          @include shape(4px, 50%);
+          background-color: $main;
+          z-index: 2;
+        }
+      }
+    }
   }
 
   &:hover {
+
     .team-img {
-      .fancybox-img {
-        opacity: 1;
-      }
-    }
-
-
-    &::before {
-      width: 252px;
+      transform: scale(1.1);
     }
 
     .team-content {
-      background-color: $main;
-
-      .name,
-      .jop {
-        color: $white;
-      }
+      opacity: 1;
     }
 
     &::before {
@@ -1517,26 +1529,26 @@
       border-top: 1px solid $border-input;
       @include between;
 
-      .user{
+      .user {
         display: flex;
         align-items: center;
         gap: 5px;
         color: $text-color;
         font-size: 13px;
 
-        .user_icon{
+        .user_icon {
           @include shape(30px, 50%);
         }
       }
 
-      .blog_link{
+      .blog_link {
         color: $main;
         font-size: 13px;
         display: flex;
         align-items: center;
         gap: 5px;
 
-        i{
+        i {
           font-size: 9px;
           // margin-top: 4px;
         }
