@@ -479,7 +479,8 @@
   z-index: 2;
 }
 
-.our_values {
+.our_values,
+.our_choices {
   @include grid(200px, 30px);
 }
 
@@ -543,6 +544,56 @@
   }
 }
 
+.our_choice {
+  background-color: $white;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  padding: 0 10px 20px;
+
+  .num_ch {
+    color: $white;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: $main;
+    width: fit-content;
+    @include shape(60px, 60px);
+    border-start-start-radius: 0px !important;
+    border-start-end-radius: 0px !important;
+    margin-inline: auto;
+    @include center;
+    margin-bottom: 18px;
+    transition: $main-transition;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: $sec;
+      transition: $main-transition;
+      z-index: -1;
+    }
+  }
+
+  .text {
+    text-align: center;
+    font-size: 14px;
+    color: #272727;
+  }
+
+  &:hover {
+    .num_ch {
+      &::before {
+        height: 100%;
+      }
+    }
+  }
+}
+
 /********************* End About section *********************/
 
 /********************* Start services-card section *********************/
@@ -562,10 +613,12 @@
 .services-card {
   position: relative;
   z-index: 5;
-  height: 440px;
+  height: 470px;
   counter-increment: post-counter;
+  background-color: $white;
 
   .image {
+    border: 1px dashed #ebf1f5;
     border-radius: 10px;
     overflow: hidden;
     width: 100%;
@@ -624,7 +677,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 85%);
     z-index: 1;
   }
 
@@ -648,10 +701,10 @@
     .desc {
       font-size: 14px;
       color: $white;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      // display: -webkit-box;
+      // -webkit-line-clamp: 3;
+      // -webkit-box-orient: vertical;
+      // overflow: hidden;
     }
 
     .price {
@@ -707,9 +760,7 @@
   }
 
   @media screen and (max-width: $screen-xs) {
-    // .image {
-    //   height: 200px;
-    // }
+    height: 440px;
 
     .service-content {
       .service-name {
@@ -898,11 +949,11 @@
     background-color: #ebf1f586;
     clip-path: polygon(30% 0%, 100% 100%, 100% 0);
   }
-  
+
   &::after {
     @include dir-left(0px);
   }
-  
+
   &::before {
     @include dir-right(0px);
     transform: rotateY(180deg);
@@ -1035,14 +1086,7 @@
   }
 
   @media screen and (max-width: $screen-sm) {
-    // height: 260px;
-
-    .team-img {
-      @include shape(100px !important, 50%);
-    }
-
     .team-content {
-      width: calc(100% - 40px);
 
       .name {
         font-size: 14px;

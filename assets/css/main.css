@@ -4703,7 +4703,8 @@ html[lang=ar] .our_card .number::before {
   z-index: 2;
 }
 
-.our_values {
+.our_values,
+.our_choices {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 36px 30px;
@@ -4757,6 +4758,53 @@ html[lang=ar] .our_card .number::before {
   transform: scale(1.1);
 }
 
+.our_choice {
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  padding: 0 10px 20px;
+}
+.our_choice .num_ch {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: #eb0c2a;
+  width: -moz-fit-content;
+  width: fit-content;
+  width: 60px;
+  height: 60px;
+  border-radius: 60px !important;
+  border-start-start-radius: 0px !important;
+  border-start-end-radius: 0px !important;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 18px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+.our_choice .num_ch::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #f96b73;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+.our_choice .text {
+  text-align: center;
+  font-size: 14px;
+  color: #272727;
+}
+.our_choice:hover .num_ch::before {
+  height: 100%;
+}
+
 /********************* End About section *********************/
 /********************* Start services-card section *********************/
 .services_sec {
@@ -4771,10 +4819,12 @@ html[lang=ar] .our_card .number::before {
 .services-card {
   position: relative;
   z-index: 5;
-  height: 440px;
+  height: 470px;
   counter-increment: post-counter;
+  background-color: #fff;
 }
 .services-card .image {
+  border: 1px dashed #ebf1f5;
   border-radius: 10px;
   overflow: hidden;
   width: 100%;
@@ -4840,7 +4890,7 @@ html[lang=ar] .services-card .small_icon::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 85%);
   z-index: 1;
 }
 .services-card .service-content {
@@ -4867,10 +4917,6 @@ html[lang=ar] .services-card .service-content {
 .services-card .service-content .desc {
   font-size: 14px;
   color: #fff;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 .services-card .service-content .price {
   display: flex;
@@ -4924,6 +4970,9 @@ html[lang=ar] .services-card .main-btn {
   -webkit-text-stroke-color: #fff;
 }
 @media screen and (max-width: 425px) {
+  .services-card {
+    height: 440px;
+  }
   .services-card .service-content .service-name {
     font-size: 14px;
   }
@@ -5244,14 +5293,6 @@ html[lang=ar] .team-card .team-content .team_list .team_list_item::after {
   visibility: visible;
 }
 @media screen and (max-width: 576px) {
-  .team-card .team-img {
-    width: 100px !important;
-    height: 100px !important;
-    border-radius: 50% !important;
-  }
-  .team-card .team-content {
-    width: calc(100% - 40px);
-  }
   .team-card .team-content .name {
     font-size: 14px;
   }
