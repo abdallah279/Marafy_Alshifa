@@ -1362,7 +1362,7 @@ html[lang=ar] .copy-item {
   border-end-start-radius: 5px;
 }
 
-.border_r2, .services-details .services_det_img .img, .services-details .services_det_img::before, .services-details .services_det_img::after, .blog_date.price, .blog_con .blog_sidebar .blog_items .blog_item, .blog_con .blog_sidebar, .select ~ .select2 .select2-selection--single,
+.border_r2, .services-details .services_det_img .img, .services-details .services_det_img::before, .services-details .services_det_img::after, .blog_date.price, .select ~ .select2 .select2-selection--single,
 .select ~ .select2 .select2-selection--multiple,
 .select-multi ~ .select2 .select2-selection--single,
 .select-multi ~ .select2 .select2-selection--multiple,
@@ -4241,6 +4241,31 @@ html[lang=ar] .footer-left-img {
   max-height: 16px;
 }
 
+.Credits_sec {
+  background-color: rgba(242, 245, 247, 0.38);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+@media (max-width: 550px) {
+  .Credits_sec {
+    gap: 15px;
+    padding: 20px 15px;
+  }
+}
+.Credits_sec .Credits_img {
+  max-height: 70px;
+}
+@media (max-width: 550px) {
+  .Credits_sec .Credits_img {
+    max-height: 51px;
+  }
+}
+
 /********************* Start Slider section *********************/
 .home-sec {
   position: relative;
@@ -4402,11 +4427,16 @@ html[lang=ar] .home-sec .owl-nav {
 .home-sec .hea {
   position: absolute;
   bottom: -10px;
-  left: 0;
   max-width: 140px;
   opacity: 0.3;
   z-index: 3;
   animation: bounceIn 2.5s infinite linear alternate;
+}
+html[lang=en] .home-sec .hea {
+  right: 0;
+}
+html[lang=ar] .home-sec .hea {
+  left: 0;
 }
 @media screen and (max-width: 576px) {
   .home-sec .hea {
@@ -4757,6 +4787,11 @@ html[lang=ar] .our_card .number::before {
 .our_value:hover .our_value_img {
   transform: scale(1.1);
 }
+@media screen and (max-width: 425px) {
+  .our_value .name {
+    font-size: 15px;
+  }
+}
 
 .our_choice {
   background-color: #fff;
@@ -4803,6 +4838,14 @@ html[lang=ar] .our_card .number::before {
 }
 .our_choice:hover .num_ch::before {
   height: 100%;
+}
+@media screen and (max-width: 425px) {
+  .our_choice .num_ch {
+    font-size: 18px;
+  }
+  .our_choice .text {
+    font-size: 13px;
+  }
 }
 
 /********************* End About section *********************/
@@ -5615,7 +5658,7 @@ html[lang=ar] .team-card .team-content .team_list .team_list_item::after {
   padding: 20px;
   border: 1px solid #f0f0f0;
   position: sticky;
-  top: 100px;
+  top: 0;
   flex-shrink: 0;
   height: -moz-fit-content;
   height: fit-content;
@@ -5631,11 +5674,24 @@ html[lang=ar] .blog_con .blog_sidebar {
     width: 100%;
   }
 }
+.blog_con .blog_sidebar .doctor_img {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .blog_con .blog_sidebar .title {
   font-size: 15px;
   color: #000;
   font-weight: 700;
-  margin-bottom: 15px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.blog_con .blog_sidebar .jop {
+  margin-bottom: 10px;
+  text-align: center;
 }
 .blog_con .blog_sidebar .blog_items .blog_item {
   display: block;
@@ -5644,7 +5700,6 @@ html[lang=ar] .blog_con .blog_sidebar {
   color: #000;
   background-color: #f5f5f5;
   width: 100%;
-  margin-bottom: 10px;
   transition: all 0.3s ease;
   text-align: start;
 }
@@ -6135,4 +6190,69 @@ html[lang=ar] .services-details .services_det_img::after {
   color: #eb0c2a !important;
 }
 
-/********************* End success_st_card *********************//*# sourceMappingURL=main.css.map */
+/********************* End success_st_card *********************/
+/********************* Start numbers section *********************/
+.our-numbers {
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 2;
+}
+.our-numbers::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 17, 40, 0.8);
+  z-index: -1;
+}
+.our-numbers .number-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+@media screen and (max-width: 576px) {
+  .our-numbers .number-items {
+    gap: 25px;
+  }
+}
+.our-numbers .number-items .number-item {
+  text-align: center;
+  color: #000;
+  background-color: #fff;
+  padding: 20px 30px;
+  position: relative;
+  z-index: 2;
+  outline: 1px dashed #fff;
+  outline-offset: 5px;
+}
+@media screen and (max-width: 425px) {
+  .our-numbers .number-items .number-item {
+    padding: 20px 20px;
+  }
+}
+.our-numbers .number-items .number-item .num {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 576px) {
+  .our-numbers .number-items .number-item .num {
+    font-size: 18px;
+  }
+}
+.our-numbers .number-items .number-item .text {
+  font-size: 15px;
+}
+@media screen and (max-width: 576px) {
+  .our-numbers .number-items .number-item .text {
+    font-size: 14px;
+  }
+}
+
+/********************* End numbers section *********************//*# sourceMappingURL=main.css.map */
