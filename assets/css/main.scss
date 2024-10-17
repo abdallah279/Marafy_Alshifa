@@ -943,7 +943,7 @@
 .team-card {
   position: relative;
   background-color: $white;
-  padding: 20px;
+  padding: 12px;
   z-index: 2;
   overflow: hidden;
   border: 2px dashed #ebf1f5;
@@ -1097,6 +1097,7 @@
   }
 
   @media screen and (max-width: $screen-sm) {
+    padding: 0;
     .team-content {
 
       .name {

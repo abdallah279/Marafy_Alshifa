@@ -5181,7 +5181,7 @@ html[lang=ar] .client-item::before {
 .team-card {
   position: relative;
   background-color: #fff;
-  padding: 20px;
+  padding: 12px;
   z-index: 2;
   overflow: hidden;
   border: 2px dashed #ebf1f5;
@@ -5336,6 +5336,9 @@ html[lang=ar] .team-card .team-content .team_list .team_list_item::after {
   visibility: visible;
 }
 @media screen and (max-width: 576px) {
+  .team-card {
+    padding: 0;
+  }
   .team-card .team-content .name {
     font-size: 14px;
   }
