@@ -5339,6 +5339,13 @@ html[lang=ar] .team-card .team-content .team_list .team_list_item::after {
   .team-card {
     padding: 0;
   }
+  .team-card .team-img {
+    height: 370px;
+  }
+  .team-card .team-img .img {
+    -o-object-fit: unset;
+       object-fit: unset;
+  }
   .team-card .team-content .name {
     font-size: 14px;
   }

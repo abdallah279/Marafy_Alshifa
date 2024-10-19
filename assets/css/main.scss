@@ -1098,6 +1098,14 @@
 
   @media screen and (max-width: $screen-sm) {
     padding: 0;
+
+    .team-img {
+      height: 370px;
+      .img{
+        object-fit: unset;
+      }
+    }
+
     .team-content {
 
       .name {
