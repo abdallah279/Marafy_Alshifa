@@ -160,12 +160,12 @@ $(document).ready(function () {
       `<i class="fa-solid fa-arrow-left-long"></i>`,
     ],
     responsive: {
-      1200: {
-        items: 3,
-      },
-      991: {
-        items: 3,
-      },
+      // 1200: {
+      //   items: 3,
+      // },
+      // 991: {
+      //   items: 3,
+      // },
       560: {
         items: 2,
       },

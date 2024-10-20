@@ -5214,7 +5214,7 @@ html[lang=ar] .team-card::before {
   left: 0px;
 }
 .team-card .team-img {
-  height: 420px;
+  height: 620px;
   width: 100%;
   transition: all 600ms linear;
   flex-shrink: 0;
@@ -5223,10 +5223,7 @@ html[lang=ar] .team-card::before {
   border: 1px solid #ebf1f5;
 }
 .team-card .team-img .img {
-  -o-object-fit: cover;
-     object-fit: cover;
   width: 100%;
-  height: 100%;
 }
 .team-card .team_con {
   position: relative;
@@ -5340,7 +5337,7 @@ html[lang=ar] .team-card .team-content .team_list .team_list_item::after {
     padding: 0;
   }
   .team-card .team-img {
-    height: 370px;
+    height: 350px;
   }
   .team-card .team-img .img {
     -o-object-fit: unset;
